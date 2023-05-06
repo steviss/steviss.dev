@@ -1,0 +1,51 @@
+{
+  "folders": [
+    {
+      "name": "steviss.dev Astro ReactJS",
+      "path": "./"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint", //Linter (ESLint)
+      "tombonnike.vscode-status-bar-format-toggle", //Nice toggle feature
+      "donjayamanne.githistory", //For comparing files in GIT
+      "esbenp.prettier-vscode", // Prettier, code formatter
+      "redhat.vscode-yaml", //For Docker-Compose Yaml Files
+      "ms-azuretools.vscode-docker", //For Docker Containers and such, a really nice integration
+      "donjayamanne.githistory", //Helps with git, can compare files.
+      "orta.vscode-jest", //Jest for VScode
+      "chrisbibby.hide-node-modules", //Hide Node Modules with a click
+      "wallabyjs.console-ninja", // displays console log in VSCode
+      "astro-build.astro-vscode" // Astro Extension
+    ]
+  },
+  "settings": {
+    "[astro]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.validate": ["javascript", "javascriptreact", "html", "typescript", "typescriptreact"],
+    "prettier.documentSelectors": ["**/*.astro"],
+    "eslint.workingDirectories": ["./"],
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "files.eol": "\n",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "jest.autoRun": "off",
+    "jest.showCoverageOnLoad": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/node_modules": true
+    }
+  }
+}
