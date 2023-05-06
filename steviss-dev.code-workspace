@@ -24,7 +24,13 @@
     "[astro]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "eslint.validate": ["javascript", "javascriptreact", "html", "typescript", "typescriptreact"],
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "html",
+      "typescript",
+      "typescriptreact"
+    ],
     "prettier.documentSelectors": ["**/*.astro"],
     "eslint.workingDirectories": ["./"],
     "typescript.tsdk": "node_modules\\typescript\\lib",
