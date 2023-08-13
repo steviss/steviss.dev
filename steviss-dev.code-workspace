@@ -17,7 +17,8 @@
       "orta.vscode-jest", //Jest for VScode
       "chrisbibby.hide-node-modules", //Hide Node Modules with a click
       "wallabyjs.console-ninja", // displays console log in VSCode
-      "astro-build.astro-vscode" // Astro Extension
+      "astro-build.astro-vscode", // Astro Extension
+      "bradlc.vscode-tailwindcss" // Tailwind CSS IntelliSense
     ]
   },
   "settings": {
