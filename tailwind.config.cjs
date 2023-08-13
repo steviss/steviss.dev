@@ -6,6 +6,10 @@ module.exports = {
       boxShadow: {
         glass: "0 0.25rem 1rem 0 rgba(0, 0, 0, 0.3)",
       },
+      fontFamily: {
+        ibmplex: ["IBM Plex Sans", "sans-serif"],
+        tektur: ["Tektur", "cursive"],
+      },
     },
   },
   plugins: [],
