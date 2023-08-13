@@ -3,6 +3,10 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   font-size: 16px;
@@ -13,4 +17,10 @@ body {
 body {
   background-color: #fbab7e;
   background-image: linear-gradient(62deg, #fbab7e 0%, #e06c22 100%);
+}
+
+@layer components {
+  .bg-glass {
+    @apply bg-opacity-25 backdrop-blur-sm shadow-glass rounded-lg bg-white p-4 border border-white border-opacity-20;
+  }
 }

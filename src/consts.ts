@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = "steviss.dev";
 export const SITE_DESCRIPTION = "Full Stack Developer";
+export const SITE_OWNER = "Stefan Stević";

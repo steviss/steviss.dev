@@ -32,6 +32,7 @@
       "typescript",
       "typescriptreact"
     ],
+    "css.lint.unknownAtRules": "ignore", //@tailwind imports for warnings
     "prettier.documentSelectors": ["**/*.astro"],
     "eslint.workingDirectories": ["./"],
     "typescript.tsdk": "node_modules\\typescript\\lib",
