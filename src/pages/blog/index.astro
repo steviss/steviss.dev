@@ -2,29 +2,46 @@
 import FormattedDate from "../../components/FormattedDate.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import Layout from "../../layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, CollectionEntry } from "astro:content";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+interface PostsPerYear {
+  [year: number]: CollectionEntry<"blog">[];
+}
+
+const postsPerYear = (await getCollection("blog")).reduce(
+  (out: PostsPerYear, post) => {
+    const year = new Date(post.data.pubDate).getFullYear();
+    if (!out[year]) {
+      out[year] = [];
+    }
+    out[year]?.push(post);
+    return out;
+  },
+  {}
 );
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section>
-    <ul class="p-0 list-none">
-      {
-        posts.map((post) => (
-          <li>
-            <FormattedDate
-              className="italic text-gray-600"
-              date={post.data.pubDate}
-            />
-            <a class="visited:text-purple-400" href={`/blog/${post.slug}/`}>
-              {post.data.title}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    {
+      Object.keys(postsPerYear).map((year) => (
+        <div>
+          <h2>{year}</h2>
+          <ul>
+            {postsPerYear[parseInt(year, 10)]?.map((post) => (
+              <li>
+                <FormattedDate
+                  className="italic text-gray-600"
+                  date={post.data.pubDate}
+                />
+                <a class="visited:text-purple-400" href={`/blog/${post.slug}/`}>
+                  {post.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
   </section>
 </Layout>
