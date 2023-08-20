@@ -1,5 +1,5 @@
 ---
-import FormattedDate from "../components/FormattedDate.astro";
+import { FormattedDate } from "../components/react";
 import Layout from "./Layout.astro";
 import type { CollectionEntry } from "astro:content";
 
@@ -9,9 +9,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <article>
-    {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-    <h1 class="title">{title}</h1>
+  <article class="prose md:prose-lg lg:prose-xl max-w-none">
+    {
+      heroImage && (
+        <img width={720} height={360} src={heroImage} alt={description} />
+      )
+    }
+    <h1>{title}</h1>
     <FormattedDate date={pubDate} />
     {
       updatedDate && (

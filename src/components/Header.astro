@@ -3,23 +3,15 @@ import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header class="my-6">
-  <div class="flex flex-col items-center justify-center">
-    <h2
-      class="mb-2 font-tektur text-2xl font-bold text-white drop-shadow shadow-orange-500"
-    >
-      {`<${SITE_TITLE}/>`}
-    </h2>
-    <nav class="flex">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-      <HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">
-        Twitter
-      </HeaderLink>
-      <HeaderLink href="https://github.com/withastro/astro" target="_blank">
-        GitHub
-      </HeaderLink>
-    </nav>
-  </div>
+<header
+  class="flex items-center bg-gray-50 justify-center border-b p-2 sm:p-4 md:p-8"
+>
+  <h2 class="mx-4 sm:mr-auto font-tektur text-2xl font-bold text-orange-500">
+    {`<${SITE_TITLE}/>`}
+  </h2>
+  <nav class="flex">
+    <HeaderLink href="/">Home</HeaderLink>
+    <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/about">About</HeaderLink>
+  </nav>
 </header>

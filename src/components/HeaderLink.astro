@@ -10,9 +10,9 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
 <a
-  class="relative p-2 text-white drop-shadow shadow-orange-500 before:block before:absolute before:w-full before:bg-white before:h-1 before:bottom-0 before:left-0 before:opacity-0 hover:before:opacity-75 before:transition-opacity"
+  class="relative p-4 text-black"
   href={href}
-  class:list={[className, { "font-bold before:opacity-100": isActive }]}
+  class:list={[className, { "font-bold": isActive }]}
   {...props}
 >
   <slot />

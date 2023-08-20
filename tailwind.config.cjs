@@ -10,7 +10,10 @@ module.exports = {
         ibmplex: ["IBM Plex Sans", "sans-serif"],
         tektur: ["Tektur", "cursive"],
       },
+      spacing: {
+        "1/2": "50%",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
