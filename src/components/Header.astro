@@ -6,9 +6,11 @@ import HeaderLink from "./HeaderLink.astro";
 <header
   class="flex items-center bg-gray-50 justify-center border-b p-2 sm:p-4 md:p-8"
 >
-  <h2 class="mx-4 sm:mr-auto font-tektur text-2xl font-bold text-orange-500">
-    {`<${SITE_TITLE}/>`}
-  </h2>
+  <a href="/" class="mx-4 sm:mr-auto"
+    ><h2 class="font-tektur text-2xl font-bold text-orange-500 drop-shadow">
+      {`<${SITE_TITLE}/>`}
+    </h2></a
+  >
   <nav class="flex">
     <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/blog">Blog</HeaderLink>

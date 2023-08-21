@@ -1,28 +1,35 @@
 ---
 import { SITE_OWNER } from "../consts";
-import HeaderLink from "./HeaderLink.astro";
-import { IconContainer } from "./react";
+import { IconLink } from "./react";
 import { faGithub, faCodepen } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMugHot } from "@fortawesome/free-solid-svg-icons";
 
 const today = new Date();
 ---
 
 <footer class="flex items-center mt-8 p-2 sm:p-4 md:p-8 border-t bg-gray-50">
   <span class="flex flex-1 text-black">
-    &copy; {today.getFullYear()}
+    &copy; 2016-{today.getFullYear()}
     {SITE_OWNER}. All rights reserved.</span
   >
   <div class="flex">
-    <HeaderLink href="https://github.com/steviss" target="_blank">
-      <IconContainer className="block w-6 h-6">
-        <FontAwesomeIcon icon={faGithub} />
-      </IconContainer>
-    </HeaderLink>
-    <HeaderLink href="https://codepen.io/steviss" target="_blank">
-      <IconContainer className="block w-6 h-6">
-        <FontAwesomeIcon icon={faCodepen} />
-      </IconContainer>
-    </HeaderLink>
+    <IconLink
+      href="https://paypal.me/stevissdev?country.x=RS&locale.x=en_US"
+      target="_blank"
+      label="Buy me a coffee!"
+      icon={faMugHot}
+    />
+    <IconLink
+      href="https://github.com/steviss"
+      target="_blank"
+      label="@steviss"
+      icon={faGithub}
+    />
+    <IconLink
+      href="https://codepen.io/steviss"
+      target="_blank"
+      label="@steviss"
+      icon={faCodepen}
+    />
   </div>
 </footer>

@@ -20,14 +20,23 @@ main {
 main > div {
   height: auto;
 }
+.gradient-bg-before > span {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  margin-right: 1px;
+}
 
-body {
-  @apply h-full;
+.gradient-bg-before::before,
+.gradient-bg {
   background-color: #fbab7e;
   background-image: linear-gradient(62deg, #fbab7e 0%, #e06c22 100%);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
+}
+
+body {
+  @apply h-full;
 }
 
 @layer components {

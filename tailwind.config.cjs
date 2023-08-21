@@ -13,6 +13,9 @@ module.exports = {
       spacing: {
         "1/2": "50%",
       },
+      width: {
+        auto: "auto",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
