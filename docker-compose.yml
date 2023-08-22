@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  sanity-app:
+    env_file:
+      - ".env"
+    build:
+      context: "./sanity"
+      dockerfile: "./Dockerfile"
+    ports:
+      - ${SANITY_PORT}:3333
+    volumes:
+      - ./sanity:/sanity-app
+      - /sanity-app/node_modules

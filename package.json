@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "license": "Copyrighted",
   "scripts": {
+    "sanity": "docker compose up",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
