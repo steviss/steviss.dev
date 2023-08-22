@@ -1,0 +1,5 @@
+.git
+.sanity
+.dockerignore
+.gitignore
+node_modules

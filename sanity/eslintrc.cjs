@@ -1,3 +1,3 @@
 module.export = {
-  extends: '@sanity/eslint-config-studio',
-}
+  extends: "@sanity/eslint-config-studio",
+};

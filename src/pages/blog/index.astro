@@ -7,7 +7,11 @@ import { useSanityClient } from "@sanity/astro";
 export async function getBlogPosts() {
   const query = `*[_type == "post"]`;
   const posts = await useSanityClient().fetch(query);
-  return posts;
+  return posts.map(({ title, slug, _createdAt }) => ({
+    title,
+    slug: slug.current,
+    pubDate: _createdAt,
+  }));
 }
 
 const posts = await getBlogPosts();

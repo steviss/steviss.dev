@@ -1,4 +1,5 @@
-version: "3.8"
+version: "3.9"
+
 services:
   sanity-app:
     env_file:
@@ -11,3 +12,4 @@ services:
     volumes:
       - ./sanity:/sanity-app
       - /sanity-app/node_modules
+      - /sanity-app/.sanity
