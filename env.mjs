@@ -26,7 +26,7 @@ const client = z.object({
  */
 const processEnv = {
   SANITY_STUDIO_PROJECT_ID: import.meta.env.SANITY_STUDIO_PROJECT_ID,
-  SANITY_STUDIO_DATASET: import.meta.env.SANITY_STUDIO_PROJECT_ID,
+  SANITY_STUDIO_DATASET: import.meta.env.SANITY_STUDIO_DATASET,
 };
 
 // Don't touch the part below
