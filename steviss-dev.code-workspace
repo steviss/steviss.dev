@@ -3,7 +3,8 @@
     {
       "name": "steviss.dev Astro ReactJS",
       "path": "./"
-    }
+    },
+    { "name": "steviss.dev Blogging Studio", "path": "./sanity" }
   ],
   "extensions": {
     "recommendations": [
