@@ -1,0 +1,14 @@
+---
+import PortableTextImage from "./PortableTextImage.astro";
+import { PortableText as PortableTextInternal } from "astro-portableText";
+
+const { portableText } = Astro.props;
+
+const components = {
+  type: {
+    image: PortableTextImage,
+  },
+};
+---
+
+<PortableTextInternal value={portableText} components={components} />

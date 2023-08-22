@@ -2,15 +2,25 @@
 import { BlogPost } from "../../components/react";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import Layout from "../../layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { useSanityClient } from "@sanity/astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+export async function getBlogPosts() {
+  const query = `*[_type == "post"]`;
+  const posts = await useSanityClient().fetch(query);
+  return posts;
+}
+
+const posts = await getBlogPosts();
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <section class="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50">
-    {posts.map((post, idx) => <BlogPost {...post} index={idx} />)}
+  <section class="flex flex-col mx-auto p-2 text-blue-50">
+    {
+      posts.map((post) => (
+        <pre class="whitespace-normal bg-black text-white">
+          {JSON.stringify(post)}
+        </pre>
+      ))
+    }
   </section>
 </Layout>

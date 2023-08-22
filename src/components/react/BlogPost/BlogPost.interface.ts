@@ -1,4 +1,7 @@
-import type { CollectionEntry } from "astro:content";
-
-export type BlogPostProps = Partial<HTMLDivElement> &
-  CollectionEntry<"blog"> & { index: number };
+export type BlogPostProps = Partial<HTMLDivElement> & {
+  title: string;
+  slug: string;
+  description: string;
+  createdAt: Date;
+  heroImage?: string;
+};

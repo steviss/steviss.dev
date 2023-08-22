@@ -1,9 +1,14 @@
 ---
 import { FormattedDate } from "../components/react";
 import Layout from "./Layout.astro";
-import type { CollectionEntry } from "astro:content";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate: Date;
+  heroImage?: string;
+};
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---

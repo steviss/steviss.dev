@@ -1,21 +1,44 @@
 ---
+import PortableText from "../../components/sanity/PortableText.astro";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import { useSanityClient } from "@sanity/astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
-}
-type Props = CollectionEntry<"blog">;
+  const query = `*[_type == "post"]`;
+  const posts = await useSanityClient().fetch(query);
 
-const post = Astro.props;
-const { Content } = await post.render();
+  return posts.map((post: PostType) => {
+    return {
+      params: {
+        slug: post.slug?.current || "",
+      },
+      props: { ...post },
+    };
+  });
+}
+
+type PostType = {
+  title: string;
+  slug: {
+    current: string;
+  };
+  description: string;
+  pubDate: string;
+  updatedDate: string;
+  heroImage: any;
+  body: any;
+};
+
+const { title, body, description, pubDate, updatedDate, heroImage } =
+  Astro.props;
 ---
 
-<BlogPostLayout {...post.data}>
-  <h1>{post.data.title}</h1>
-  <Content />
+<BlogPostLayout
+  title={title}
+  description={description}
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+  heroImage={heroImage}
+>
+  <PortableText portableText={body} />
 </BlogPostLayout>
