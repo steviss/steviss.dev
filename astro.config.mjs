@@ -22,4 +22,5 @@ export const sanityClienfConfig = {
 export default defineConfig({
   site: "https://steviss.dev",
   integrations: [sitemap(), react(), tailwind(), sanity(sanityClienfConfig)],
+  experimental: { assets: true },
 });

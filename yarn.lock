@@ -568,6 +568,13 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.4.2"
 
+"@fortawesome/pro-light-svg-icons@^6.4.2":
+  version "6.4.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/6.4.2/pro-light-svg-icons-6.4.2.tgz#e35a2608e75805c8b9f0a9d3ab1ce634e9a37d84"
+  integrity sha512-JC/soha6KokIirjuaOZExGg2rw3TGVqvrOvYHmqFSV2FtVJzbW10ZByJDC3z4SXrBTJp8kuub8AgR8XND75OBw==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.2"
+
 "@fortawesome/react-fontawesome@^0.2.0":
   version "0.2.0"
   resolved "https://npm.fontawesome.com/@fortawesome/react-fontawesome/-/0.2.0/react-fontawesome-0.2.0.tgz#d90dd8a9211830b4e3c08e94b63a0ba7291ddcf4"
@@ -979,6 +986,11 @@ acorn@^8.8.0, acorn@^8.8.2:
   version "8.8.2"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.8.2.tgz#1b2f25db02af965399b9776b0c2c391276d37c4a"
   integrity sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==
+
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==
 
 ajv@^6.10.0, ajv@^6.12.4:
   version "6.12.6"
@@ -1407,6 +1419,11 @@ ci-info@^3.3.1:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.8.0.tgz#81408265a5380c929f0bc665d62256628ce9ef91"
   integrity sha512-eXTggHWSooYhq49F2opQhuHWgzucfF2YgODK4e1566GQs5BIfP30B0oenwBJHfWxAs2fyPB1s7Mg949zLf61Yw==
+
+classnames@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
+  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
 cli-boxes@^3.0.0:
   version "3.0.0"
@@ -5012,6 +5029,11 @@ yargs-parser@^21.0.1:
   version "21.1.1"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.1.1.tgz#9096bceebf990d21bb31fa9516e0ede294a77d35"
   integrity sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==
+
+yarn@^1.22.19:
+  version "1.22.19"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.19.tgz#4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+  integrity sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==
 
 yocto-queue@^0.1.0:
   version "0.1.0"

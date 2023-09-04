@@ -3,17 +3,15 @@ import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header
-  class="flex items-center bg-gray-50 justify-center border-b p-2 sm:p-4 md:p-8"
->
+<header class="flex items-center justify-center p-2 sm:p-4 md:p-8">
   <a href="/" class="mx-4 sm:mr-auto"
-    ><h2 class="font-tektur text-2xl font-bold text-orange-500 drop-shadow">
-      {`<${SITE_TITLE}/>`}
+    ><h2 class="font-tektur text-2xl font-bold gradient-text">
+      {`<steviss />`}
     </h2></a
   >
   <nav class="flex">
-    <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
+    <HeaderLink href="/snippets">Snippets</HeaderLink>
+    <HeaderLink href="/projects">Projects</HeaderLink>
   </nav>
 </header>

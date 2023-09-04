@@ -1,0 +1,46 @@
+---
+import profilePicture from "../../../assets/profile_pic.jpg";
+import { IconLink } from "../../react";
+import {
+  faGithub,
+  faLinkedinIn,
+} from "@fortawesome/free-brands-svg-icons";
+import { Image } from "astro:assets";
+
+import { IconLink } from "../../react";
+
+export interface Props {
+  siteOwner: string;
+  siteDescription: string;
+}
+const { siteOwner, siteDescription } = Astro.props;
+---
+
+<section class="flex justify-between py-12 md:py-24"">
+  <div class="flex flex-col">
+    <h1
+      class="text-7xl md:text-9xl font-nunito font-black text-white mb-4 tracking-[-3px]"
+    >
+      {siteOwner}
+    </h1>
+    <h2 class="text-3xl md:text-5xl font-nunito font-black gradient-text mb-12">
+      {siteDescription}
+    </h2>
+    <p class="text-xl md:text-2xl font-noto max-w-xl break-words">
+      I love spending my time providing the best solutions for front-end and
+      back-end projects alike. I'm passionate in guiding projects to provide best 📱 UI,
+      👨‍👩‍👦‍👦 UX and 🦮 Accessibility experience.
+    </p>
+  </div>
+  <div
+    class="hidden relative md:flex flex-col rounded-full outer-rim overflow-hidden gradient-bg p-4 before:absolute before:bg-black before:content-[''] before:inset-0 before:m-auto before:rounded-full before:z-0"
+  >
+    <Image
+      class="relative block rounded-full z-10"
+      width={500}
+      height={500}
+      src={profilePicture}
+      alt={siteOwner}
+    />
+  </div>
+</section>

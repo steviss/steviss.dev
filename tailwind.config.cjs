@@ -7,14 +7,24 @@ module.exports = {
         glass: "0 0.25rem 1rem 0 rgba(0, 0, 0, 0.3)",
       },
       fontFamily: {
+        //remove ibmplex
         ibmplex: ["IBM Plex Sans", "sans-serif"],
         tektur: ["Tektur", "cursive"],
+        nunito: [" Nunito", "sans-serif"],
+        noto: ["Noto Sans", "sans-serif"],
+      },
+      fontWeight: {
+        oblique: 1000,
       },
       spacing: {
         "1/2": "50%",
       },
       width: {
         auto: "auto",
+      },
+      textColor: {
+        primary: "#fbab7e",
+        secondary: "#e06c22",
       },
     },
   },

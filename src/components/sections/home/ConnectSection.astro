@@ -1,0 +1,59 @@
+---
+import { IconLink } from "../../react";
+import {
+  faGithub,
+  faCodepen,
+  faLinkedinIn,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faBriefcase } from "@fortawesome/pro-light-svg-icons";
+---
+
+<section class="flex flex-col items-center py-12 md:py-24">
+  <h3
+    class="text-4xl md:text-6xl font-nunito font-black text-white tracking-[-3px] mb-24"
+  >
+    Connect with me 🔗
+  </h3>
+  <ul class="flex flex-row flex-wrap self-stretch justify-evenly">
+    <li>
+      <IconLink
+        href="https://www.linkedin.com/in/steviss/"
+        target="_blank"
+        label="LinkedIn"
+        icon={faLinkedinIn}
+      />
+    </li>
+    <li>
+      <IconLink
+        href="mailto:stefan@steviss.dev"
+        target="_blank"
+        label="E-mail"
+        icon={faEnvelope}
+      />
+    </li>
+    <li>
+      <IconLink
+        href="https://cv.steviss.dev"
+        target="_blank"
+        label="Resume"
+        icon={faBriefcase}
+      />
+    </li>
+    <li>
+      <IconLink
+        href="https://github.com/steviss"
+        target="_blank"
+        label="GitHub"
+        icon={faGithub}
+      />
+    </li>
+    <li>
+      <IconLink
+        href="https://codepen.io/steviss"
+        target="CodePen"
+        label="@steviss"
+        icon={faCodepen}
+      />
+    </li>
+  </ul>
+</section>
