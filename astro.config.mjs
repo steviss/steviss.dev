@@ -22,7 +22,7 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: 'NonExistingPath',
+        external: ['astro-portableText'],
       },
     },
   },

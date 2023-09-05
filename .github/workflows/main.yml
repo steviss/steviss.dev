@@ -49,7 +49,11 @@ jobs:
           envs: DEPLOY_PATH
           script_stop: true
           script: |
+            mkdir -p ~/temp-backup
+            mv ~/$DEPLOY_PATH/.well-known ~/temp-backup
             rm -rf ~/$DEPLOY_PATH
+            mv ~/temp-backup/.well-known ~/$DEPLOY_PATH
+            rm -rf ~/temp-backup
       - name: Deploy build to Alpha LionDev Cloud
         uses: appleboy/scp-action@v0.1.4
         with:
