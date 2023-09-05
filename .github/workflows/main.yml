@@ -15,7 +15,7 @@ jobs:
         with:
           registry-url: 'https://npm.fontawesome.com/'
           scope: '@fortawesome'
-          authToken: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+          token: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
           cache: yarn
           node-version-file: 'package.json'
       - name: Create .env file for frontend
