@@ -26,15 +26,16 @@ jobs:
           envkey_SANITY_STUDIO_PROJECT_ID: ${{ secrets.SANITY_STUDIO_PROJECT_ID }}
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
-      - name: Yarn Install
-        env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+      - name: Yarn FontAwesome Setup
         run: |
           yarn config set initScope npmScopes
-          yarn config set npmScopes.fortawesome.npmRegistryServer https://npm.fontawesome.com/
+          yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com/"
           yarn config set npmScopes.fortawesome.npmAlwaysAuth true
-          yarn config set npmScopes.fortawesome.npmAuthToken '$FONTAWESOME_NPM_AUTH_TOKEN'
-          FONTAWESOME_NPM_AUTH_TOKEN=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }} yarn install --immutable
+          yarn config set npmScopes.fortawesome.npmAuthToken $NPM_AUTH_TOKEN
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+      - name: Yarn Install
+        run: yarn install --immutable
       - name: Build for deploy
         run: yarn build
       - name: Delete Previous deployment to Alpha LionDev Cloud
