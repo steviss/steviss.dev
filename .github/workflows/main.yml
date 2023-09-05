@@ -5,6 +5,9 @@ name: Release Main
 'on':
   workflow_dispatch:
 
+env:
+  FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+
 jobs:
   deploy:
     environment: main
@@ -29,8 +32,6 @@ jobs:
           yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com/"
           yarn config set npmScopes.fortawesome.npmAlwaysAuth true
           yarn config set npmScopes.fortawesome.npmAuthToken $FONTAWESOME_NPM_AUTH_TOKEN
-        env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
       - name: Yarn Install
         run: yarn install --immutable
       - name: Build for deploy
