@@ -26,18 +26,6 @@ jobs:
           envkey_SANITY_STUDIO_PROJECT_ID: ${{ secrets.SANITY_STUDIO_PROJECT_ID }}
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
-      - name: Yarn FontAwesome Setup
-        run: |
-          yarn config set initScope npmScopes
-          yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com/"
-          yarn config set npmScopes.fortawesome.npmAlwaysAuth true
-          yarn config set npmScopes.fortawesome.npmAuthToken $NPM_AUTH_TOKEN
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
-      - name: Yarn Debug
-        run: yarn config --why
-      - name: Yarn Install
-        run: yarn install --immutable
       - name: Yarn Install
         run: yarn install --immutable
       - name: Build for deploy
