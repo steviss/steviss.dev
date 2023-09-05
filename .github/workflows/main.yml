@@ -33,7 +33,7 @@ jobs:
           yarn config set initScope npmScopes
           yarn config set npmScopes.fortawesome.npmRegistryServer https://npm.fontawesome.com/
           yarn config set npmScopes.fortawesome.npmAlwaysAuth true
-          yarn config set npmScopes.fortawesome.npmAuthToken '${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}'
+          yarn config set npmScopes.fortawesome.npmAuthToken $FONTAWESOME_NPM_AUTH_TOKEN
           yarn install --immutable
       - name: Build for deploy
         run: yarn build
