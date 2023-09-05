@@ -18,6 +18,7 @@ jobs:
         with:
           cache: 'yarn'
           node-version-file: 'package.json'
+
       - name: Create .env file for frontend
         uses: SpicyPizza/create-envfile@v2.0.2
         with:
@@ -26,6 +27,8 @@ jobs:
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
       - name: Yarn Install
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
         run: yarn install --immutable
       - name: Build for deploy
         run: yarn build
