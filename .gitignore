@@ -22,3 +22,12 @@ pnpm-debug.log*
 
 # npmrc
 .npmrc
+
+# Yarn v3 Cache
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

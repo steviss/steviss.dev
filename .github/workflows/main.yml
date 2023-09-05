@@ -6,19 +6,6 @@ name: Release Main
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: 'package.json'
-      - name: Install dependencies
-        run: yarn install
-      - name: Build Production
-        run: yarn build
   deploy:
     name: Deploy the build to LionDev Cloud
     runs-on: ubuntu-latest
@@ -31,6 +18,13 @@ jobs:
           node-version-file: 'package.json'
       - name: Install dependencies
         run: yarn install
+      - name: Create .env file for frontend
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+          envkey_SANITY_STUDIO_PROJECT_ID: ${{ secrets.MAIN_SANITY_STUDIO_PROJECT_ID }}
+          envkey_SANITY_STUDIO_DATASET: ${{ secrets.MAIN_SANITY_STUDIO_DATASET }}
+          file_name: .env
       - name: Build for deploy
         run: yarn build
       - name: Delete Previous deployment to Alpha LionDev Cloud
@@ -55,7 +49,7 @@ jobs:
           key: ${{ secrets.STEVISS_SSH_KEY }}
           passphrase: ${{ secrets.STEVISS_SSH_PASSPHRASE }}
           port: ${{ secrets.STEVISS_SSH_PORT }}
-          source: 'dist/**'
+          source: 'dist/**,.env'
           target: ${{ vars.MAIN_DEPLOY_PATH }}
           overwrite: true
       - name: Cleanup deployment to Alpha LionDev Cloud
