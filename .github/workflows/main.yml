@@ -28,7 +28,7 @@ jobs:
       - name: Yarn FontAwesome Setup
         run: |
           yarn config set initScope npmScopes
-          yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com/"
+          yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com"
           yarn config set npmScopes.fortawesome.npmAlwaysAuth true
           yarn config set npmScopes.fortawesome.npmAuthToken "$NPM_AUTH_TOKEN"
         env:
