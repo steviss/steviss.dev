@@ -18,13 +18,6 @@ jobs:
         with:
           cache: yarn
           node-version-file: 'package.json'
-      - name: Setup .yarnrc.yml
-        run: |
-          yarn config set npmScopes.fortawesome.npmRegistryServer "//npm.fontawesome.com"
-          yarn config set npmScopes.fortawesome.npmAlwaysAuth true
-          yarn config set npmScopes.fortawesome.npmAuthToken $FONTAWESOME_NPM_AUTH_TOKEN
-        env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
       - name: Create .env file for frontend
         uses: SpicyPizza/create-envfile@v2.0.2
         with:
