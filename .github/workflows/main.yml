@@ -25,7 +25,7 @@ jobs:
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
       - name: Yarn Install
-        run: FONTAWESOME_NPM_AUTH_TOKEN=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }} yarn install
+        run: yarn install
       - name: Build for deploy
         run: yarn build
       - name: Delete Previous deployment to Alpha LionDev Cloud
