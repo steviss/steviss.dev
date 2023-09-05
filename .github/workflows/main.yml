@@ -50,7 +50,7 @@ jobs:
           script_stop: true
           script: |
             mkdir -p ~/temp-backup
-            mv ~/$DEPLOY_PATH/.well-known ~/temp-backup/.well-known
+            mv ~/$DEPLOY_PATH/.well-known/ ~/temp-backup
             rm -rf ~/$DEPLOY_PATH
             mv ~/temp-backup/* ~/$DEPLOY_PATH
             rm -rf ~/temp-backup
