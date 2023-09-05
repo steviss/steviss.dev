@@ -11,18 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: ⚙️ Expose yarn config as "$GITHUB_OUTPUT"
-        id: yarn-config
-        shell: bash
-        working-directory: ${{ inputs.cwd }}
-        env:
-          YARN_ENABLE_GLOBAL_CACHE: 'false'
-        run: |
-          echo "FONTAWESOME_NPM_AUTH_TOKEN=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" >> $GITHUB_OUTPUT
       - uses: actions/setup-node@v3
-        env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
         with:
+          registry-url: 'https://npm.fontawesome.com/'
+          scope: '@fortawesome'
+          authToken: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
           cache: yarn
           node-version-file: 'package.json'
       - name: Create .env file for frontend
