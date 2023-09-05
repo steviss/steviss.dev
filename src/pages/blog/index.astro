@@ -20,7 +20,7 @@ const posts = await getBlogPosts();
   <section class="flex flex-col mx-auto p-2 text-blue-50">
     {
       posts.map((post) => (
-        <pre class="whitespace-normal bg-black text-white">
+        <pre class="whitespace-normal primary-bg-color text-white">
           {JSON.stringify(post)}
         </pre>
       ))

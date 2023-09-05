@@ -1,7 +1,14 @@
 ---
+import {
+  faHeadSideGear,
+  faUsersViewfinder,
+  faPersonToPortal,
+} from "@fortawesome/pro-duotone-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconContainer } from "src/components/react";
 ---
 
-<section class="flex flex-col py-12 md:py-24" ">
+<section class="flex flex-col py-12 md:py-24">
   <div
     class="flex flex-col md:flex-row md:items-center md:justify-between py-12 md:py-24"
   >
@@ -13,6 +20,9 @@
       </h2>
     </div>
     <div class="md:max-w-md">
+      <IconContainer className="py-12">
+        <FontAwesomeIcon icon={faHeadSideGear} className="h-16 duotone-icon" />
+      </IconContainer>
       <p class="font-noto text-xl lg:text-2xl max-w-xl text-center">
         Vast experience in transitioning projects from client's imagination into
         reality, on many respected platforms and stacks.
@@ -30,6 +40,12 @@
       </h2>
     </div>
     <div class="md:max-w-md">
+      <IconContainer className=" py-12">
+        <FontAwesomeIcon
+          icon={faPersonToPortal}
+          className="h-16 duotone-icon"
+        />
+      </IconContainer>
       <p class="font-noto text-xl lg:text-2xl max-w-xl text-center">
         Proficient in making projects pixel perfect, optimized for best
         performance, accessibility and experience.
@@ -47,6 +63,12 @@
       </h2>
     </div>
     <div class="md:max-w-md">
+      <IconContainer className="py-12">
+        <FontAwesomeIcon
+          icon={faUsersViewfinder}
+          className="h-16 duotone-icon"
+        />
+      </IconContainer>
       <p class="font-noto text-xl md:text-2xl max-w-xl text-center">
         Backed with always expanding knowledge of Linux-based systems and best
         practices involving project development, integrations and deployments.

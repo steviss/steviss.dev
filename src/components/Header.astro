@@ -1,16 +1,53 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
+import Link from "./Link.astro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars,
+  faFloppyDiskPen,
+  faCode,
+  faWrench,
+} from "@fortawesome/sharp-solid-svg-icons";
+import { IconContainer } from "src/components/react";
 ---
 
 <header class="flex justify-between items-center py-6 md:py-12">
   <a href="/" class="mx-4 sm:mr-auto"
-    ><h2 class="font-tektur text-2xl font-bold gradient-text">
+    ><h2 class="font-tektur text-3xl font-bold gradient-text">
       {`<steviss />`}
     </h2></a
   >
-  <nav class="flex">
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="/snippets">Snippets</HeaderLink>
-    <HeaderLink href="/projects">Projects</HeaderLink>
+  <div class="flex md:hidden">
+    <IconContainer className="group px-2">
+      <FontAwesomeIcon
+        icon={faBars}
+        className="w-10 h-10 text-primary group-hover:text-secondary transition-color duration-300 ease-in-out cursor-pointer"
+      />
+    </IconContainer>
+  </div>
+  <nav class="hidden md:flex">
+    <Link class="group" href="/blog">
+      <IconContainer className="px-2">
+        <FontAwesomeIcon
+          icon={faFloppyDiskPen}
+          className="w-5 h-5 text-primary group-hover:text-secondary transition-color duration-300 ease-in-out"
+        />
+      </IconContainer><span>Blog</span>
+    </Link>
+    <Link class="group" href="/snippets">
+      <IconContainer className="px-2">
+        <FontAwesomeIcon
+          icon={faCode}
+          className="w-5 h-5 text-primary group-hover:text-secondary transition-color duration-300 ease-in-out"
+        />
+      </IconContainer><span>Snippets</span>
+    </Link>
+    <Link class="group" href="/projects">
+      <IconContainer className="px-2">
+        <FontAwesomeIcon
+          icon={faWrench}
+          className="w-5 h-5 text-primary group-hover:text-secondary transition-color duration-300 ease-in-out"
+        />
+      </IconContainer><span>Projects</span>
+    </Link>
   </nav>
 </header>

@@ -2,19 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #fbab7e;
+  --secondary-color: #e06c22;
+  --primary-bg-color: #120c0b;
+  --secondary-bg-color: white;
+  --font-size: 16px;
+}
+
 html {
   @apply h-full;
-  font-size: 16px;
   min-width: 100%;
+  font-size: var(--font-size);
+}
+
+body {
+  @apply h-full;
+  background-color: var(--primary-bg-color);
+  color: var(--secondary-bg-color);
 }
 
 main {
   @apply h-full;
 }
 
-main > div {
-  height: auto;
-}
 .gradient-bg-before > span {
   width: calc(100% - 2px);
   height: calc(100% - 2px);
@@ -23,39 +34,78 @@ main > div {
 
 .gradient-bg-before::before,
 .gradient-bg {
-  background-color: #fbab7e;
-  background-image: linear-gradient(62deg, #fbab7e 0%, #e06c22 100%);
+  background-color: var(--primary-color);
+  background-image: linear-gradient(
+    62deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
 }
 
 .gradient-text {
-  background: linear-gradient(62deg, #fbab7e 0%, #e06c22 100%);
+  background: linear-gradient(
+    62deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-color-light {
-  color: #fbab7e;
+  color: var(--primary-color);
 }
 
 .gradient-text-color-dark {
-  color: #e06c22;
+  color: var(--secondary-color);
 }
 
 .outer-rim::before {
-  width: calc(100% - 1rem);
-  height: calc(100% - 1rem);
+  width: calc(100% - 0.5rem);
+  height: calc(100% - 0.5rem);
+  @media (min-width: 1280px) {
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+  }
 }
 
-.bg-black {
-  background-color: #120c0b;
+.primary-bg-color {
+  background-color: var(--primary-bg-color);
 }
 
-body {
-  color: white;
-  @apply h-full;
+.emoji {
+  vertical-align: middle;
+  font-size: 0.5em;
+  line-height: 1.4em;
+}
+
+.duotone-icon {
+  --icon-primary-color: var(--secondary-color);
+  --icon-secondary-color: var(--primary-color);
+  --icon-primary-opacity: 0.85;
+  --icon-secondary-opacity: 1;
+}
+
+.duotone-icon .fa-primary {
+  fill: var(--icon-primary-color);
+  opacity: var(--icon-primary-opacity);
+}
+
+.duotone-icon .fa-secondary {
+  fill: var(--icon-secondary-color);
+  opacity: var(--icon-secondary-opacity);
+}
+
+.duotone-icon.duotone-icon-reverse .fa-secondary {
+  fill: var(--icon-primary-color);
+  opacity: var(--icon-primary-opacity);
+}
+.duotone-icon.duotone-icon-reverse .fa-primary {
+  fill: var(--icon-secondary-color);
+  opacity: var(--icon-secondary-opacity);
 }
 
 .tool-belt-list > li {
@@ -64,10 +114,4 @@ body {
 
 .connect-ul > li {
   @apply mb-6 lg:mb-0;
-}
-
-@layer components {
-  .bg-glass {
-    @apply bg-opacity-25 backdrop-blur-sm shadow-glass rounded-lg bg-white p-4 border border-white border-opacity-20;
-  }
 }

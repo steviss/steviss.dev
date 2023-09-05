@@ -1,13 +1,6 @@
 ---
-import profilePicture from "../../../assets/profile_pic.jpg";
-import { IconLink } from "../../react";
-import {
-  faGithub,
-  faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons";
 import { Image } from "astro:assets";
-
-import { IconLink } from "../../react";
+import profilePicture from "src/assets/profile_pic.jpg";
 
 export interface Props {
   siteOwner: string;
@@ -16,10 +9,10 @@ export interface Props {
 const { siteOwner, siteDescription } = Astro.props;
 ---
 
-<section class="flex justify-between py-12 md:py-24">
+<section class="flex flex-col md:flex-row justify-between py-12 md:py-24">
   <div class="flex flex-col">
     <h1
-      class="text-7xl lg:text-9xl font-nunito font-black text-white mb-4 tracking-[-3px]"
+      class="text-7xl md:text-5xl lg:text-7xl xl:text-9xl font-nunito font-black text-white mb-4 tracking-[-3px]"
     >
       {siteOwner}
     </h1>
@@ -28,12 +21,12 @@ const { siteOwner, siteDescription } = Astro.props;
     </h2>
     <p class="text-xl lg:text-2xl font-noto max-w-xl">
       I love spending my time providing the best solutions for front-end and
-      back-end projects alike. I'm passionate in guiding projects to provide best 📱 UI,
-      👨‍👩‍👦‍👦 UX and 🦮 Accessibility experience.
+      back-end projects alike. I'm passionate in guiding projects to provide
+      best 📱 UI, 👨‍👩‍👦‍👦 UX and 🦮 Accessibility experience.
     </p>
   </div>
   <div
-    class="hidden self-start relative max-w-xs lg:max-w-lg md:flex flex-col rounded-full outer-rim overflow-hidden gradient-bg p-4 before:absolute before:bg-black before:content-[''] before:inset-0 before:m-auto before:rounded-full before:z-0"
+    class="flex self-center md:ml-4 xl:ml-0 my-12 lg:my-24 md:self-start relative max-w-xs lg:max-w-lg flex-col rounded-full outer-rim overflow-hidden gradient-bg p-2 xl:p-4 before:absolute before:primary-bg-color before:content-[''] before:inset-0 before:m-auto before:rounded-full before:z-0"
   >
     <Image
       class="relative block rounded-full z-10"

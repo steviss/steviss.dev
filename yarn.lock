@@ -554,17 +554,17 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.4.2"
 
-"@fortawesome/free-regular-svg-icons@^6.4.2":
-  version "6.4.2"
-  resolved "https://npm.fontawesome.com/@fortawesome/free-regular-svg-icons/-/6.4.2/free-regular-svg-icons-6.4.2.tgz#aee79ed76ce5dd04931352f9d83700761b8b1b25"
-  integrity sha512-0+sIUWnkgTVVXVAPQmW4vxb9ZTHv0WstOa3rBx9iPxrrrDH6bNLsDYuwXF9b6fGm+iR7DKQvQshUH/FJm3ed9Q==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "6.4.2"
-
 "@fortawesome/free-solid-svg-icons@^6.4.2":
   version "6.4.2"
   resolved "https://npm.fontawesome.com/@fortawesome/free-solid-svg-icons/-/6.4.2/free-solid-svg-icons-6.4.2.tgz#33a02c4cb6aa28abea7bc082a9626b7922099df4"
   integrity sha512-sYwXurXUEQS32fZz9hVCUUv/xu49PEJEyUOsA51l6PU/qVgfbTb2glsTEaJngVVT8VqBATRIdh7XVgV1JF1LkA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.2"
+
+"@fortawesome/pro-duotone-svg-icons@^6.4.2":
+  version "6.4.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-duotone-svg-icons/-/6.4.2/pro-duotone-svg-icons-6.4.2.tgz#7d358159aab76f10c9f2acf14e3df346c5ee3301"
+  integrity sha512-+nB6ryovu5AWWc2a2qz0lkmc2jEtdPRuHeKl6eI202xk1Ci0KCkBNKAb7iarRFLlvMIkOqU6d1Fpd1XccIRBwA==
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.4.2"
 
@@ -581,6 +581,20 @@
   integrity sha512-uHg75Rb/XORTtVt7OS9WoK8uM276Ufi7gCzshVWkUJbHhh3svsUUeqXerrM96Wm7fRiDzfKRwSoahhMIkGAYHw==
   dependencies:
     prop-types "^15.8.1"
+
+"@fortawesome/sharp-light-svg-icons@^6.4.2":
+  version "6.4.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/sharp-light-svg-icons/-/6.4.2/sharp-light-svg-icons-6.4.2.tgz#15475a47ba9ce782f8a5fde5c8227f33fd6f26e4"
+  integrity sha512-DiDS4Szcgki1Kke+8hV6CgDiryWCYqfhPNA7pfnJ9yumdaXmFXMyg4+7kB4RUsSsA9nsWBBTcNbFtmQ7TMy3DQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.2"
+
+"@fortawesome/sharp-solid-svg-icons@^6.4.2":
+  version "6.4.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/sharp-solid-svg-icons/-/6.4.2/sharp-solid-svg-icons-6.4.2.tgz#de0e5acbde37e7462d0a85771a4e935dd0e361be"
+  integrity sha512-b8kA9CxRPmdgoOrELrYHokbF5f0C80SJg9NA+dYcny3SHMsUQCSUacEX1OOIERwRyb1t5ncB2XI9CAPDTQ8wVg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.4.2"
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
