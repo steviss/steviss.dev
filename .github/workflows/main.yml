@@ -51,7 +51,7 @@ jobs:
           script: |
             mkdir -p ~/temp-backup
             mv ~/$DEPLOY_PATH/.well-known ~/temp-backup/.well-known
-            rm -rf ~/$DEPLOY_PATH
+            rm -rf ~/$DEPLOY_PATH/*
             mv ~/temp-backup/.well-known ~/$DEPLOY_PATH/.well-known
             rm -rf ~/temp-backup
       - name: Deploy build to Alpha LionDev Cloud
