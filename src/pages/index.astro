@@ -1,11 +1,10 @@
 ---
-import AboutMeSection from "../components/sections/home/AboutMeSection.astro";
-import MyToolBeltSection from "../components/sections/home/MyToolBeltSection.astro";
-import ConnectSection from "../components/sections/home/ConnectSection.astro";
-import ConnectSection from "../components/sections/home/ConnectSection.astro";
-import HeroSection from "../components/sections/home/HeroSection.astro";
-import { SITE_TITLE, SITE_OWNER, SITE_DESCRIPTION } from "../consts";
-import Layout from "../layouts/Layout.astro";
+import AboutMeSection from "src/components/sections/home/AboutMeSection.astro";
+import ConnectSection from "src/components/sections/home/ConnectSection.astro";
+import HeroSection from "src/components/sections/home/HeroSection.astro";
+import MyToolBeltSection from "src/components/sections/home/MyToolBeltSection.astro";
+import { SITE_TITLE, SITE_OWNER, SITE_DESCRIPTION } from "src/config";
+import Layout from "src/layouts/Layout.astro";
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -16,9 +15,8 @@ import Layout from "../layouts/Layout.astro";
   <div>
     <h3>{SITE_OWNER}</h3>
     <h4>
-      //last section about me again
-      Experienced developer with a passion to work with cutting-edge
-      technologies
+      //last section about me again Experienced developer with a passion to work
+      with cutting-edge technologies
     </h4>
   </div>
 </Layout>

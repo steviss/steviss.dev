@@ -1,12 +1,11 @@
 ---
-import { BlogPost } from "../../components/react";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import Layout from "../../layouts/Layout.astro";
 import { useSanityClient } from "@sanity/astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "src/config/consts";
+import Layout from "src/layouts/Layout.astro";
 
 export async function getBlogPosts() {
   const query = `*[_type == "post"]`;
-  const posts = await useSanityClient().fetch(query);
+  const posts = await useSanityClient().fetch<any[]>(query);
   return posts.map(({ title, slug, _createdAt }) => ({
     title,
     slug: slug.current,
