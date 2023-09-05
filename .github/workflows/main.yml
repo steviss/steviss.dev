@@ -24,6 +24,8 @@ jobs:
           envkey_SANITY_STUDIO_PROJECT_ID: ${{ secrets.SANITY_STUDIO_PROJECT_ID }}
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
+      - name: Yarn Install
+        run: yarn install
       - name: Build for deploy
         run: yarn build
       - name: Delete Previous deployment to Alpha LionDev Cloud
