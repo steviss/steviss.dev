@@ -22,7 +22,6 @@ jobs:
       - name: Create .env file for frontend
         uses: SpicyPizza/create-envfile@v2.0.2
         with:
-          envkey_FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
           envkey_SANITY_STUDIO_PROJECT_ID: ${{ secrets.SANITY_STUDIO_PROJECT_ID }}
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
@@ -33,7 +32,7 @@ jobs:
           yarn config set npmScopes.fortawesome.npmAlwaysAuth true
           yarn config set npmScopes.fortawesome.npmAuthToken $NPM_AUTH_TOKEN
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: '${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}'
       - name: Yarn Install
         run: yarn install --immutable
       - name: Build for deploy
