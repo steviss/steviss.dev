@@ -1,32 +1,32 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       boxShadow: {
-        glass: "0 0.25rem 1rem 0 rgba(0, 0, 0, 0.3)",
+        glass: '0 0.25rem 1rem 0 rgba(0, 0, 0, 0.3)',
       },
       fontFamily: {
         //remove ibmplex
-        ibmplex: ["IBM Plex Sans", "sans-serif"],
-        tektur: ["Tektur", "cursive"],
-        nunito: [" Nunito", "sans-serif"],
-        noto: ["Noto Sans", "sans-serif"],
+        ibmplex: ['IBM Plex Sans', 'sans-serif'],
+        tektur: ['Tektur', 'cursive'],
+        nunito: [' Nunito', 'sans-serif'],
+        noto: ['Noto Sans', 'sans-serif'],
       },
       fontWeight: {
         oblique: 1000,
       },
       spacing: {
-        "1/2": "50%",
+        '1/2': '50%',
       },
       width: {
-        auto: "auto",
+        auto: 'auto',
       },
       textColor: {
-        primary: "#fbab7e",
-        secondary: "#e06c22",
+        primary: '#fbab7e',
+        secondary: '#e06c22',
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
-};
+  plugins: [require('@tailwindcss/typography')],
+}

@@ -1,22 +1,13 @@
-import { IconContainer } from "../IconContainer";
-import type { IconLinkProps } from "./IconLink.interface";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/sharp-light-svg-icons";
-import classNames from "classnames";
-import type { FC } from "react";
+import { IconContainer } from '../IconContainer'
+import type { IconLinkProps } from './IconLink.interface'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight } from '@fortawesome/sharp-light-svg-icons'
+import classNames from 'classnames'
+import type { FC } from 'react'
 
-const IconLink: FC<IconLinkProps> = ({
-  children,
-  label,
-  icon,
-  className,
-  ...props
-}) => {
+const IconLink: FC<IconLinkProps> = ({ children, label, icon, className, ...props }) => {
   return (
-    <a
-      {...props}
-      className={classNames("flex group relative items-center", className)}
-    >
+    <a {...props} className={classNames('flex group relative items-center', className)}>
       <IconContainer className="relative px-2">
         <FontAwesomeIcon
           icon={icon}
@@ -30,7 +21,7 @@ const IconLink: FC<IconLinkProps> = ({
         <FontAwesomeIcon icon={faChevronRight} className="w-5 h-5 text-white" />
       </IconContainer>
     </a>
-  );
-};
+  )
+}
 
-export default IconLink;
+export default IconLink

@@ -1,11 +1,11 @@
 export type PostType = {
-  title: string;
+  title: string
   slug: {
-    current: string;
-  };
-  description: string;
-  pubDate: string;
-  updatedDate: string;
-  heroImage: any;
-  body: any;
-};
+    current: string
+  }
+  description: string
+  pubDate: string
+  updatedDate: string
+  heroImage: any
+  body: any
+}

@@ -1,39 +1,30 @@
 ---
-import { Image } from "astro:assets";
-import profilePicture from "src/assets/profile_pic.jpg";
+import { Image } from 'astro:assets'
+import profilePicture from 'src/assets/profile_pic.jpg'
 
 export interface Props {
-  siteOwner: string;
-  siteDescription: string;
+  siteOwner: string
+  siteDescription: string
 }
-const { siteOwner, siteDescription } = Astro.props;
+const { siteOwner, siteDescription } = Astro.props
 ---
 
 <section class="flex flex-col md:flex-row justify-between py-12 md:py-24">
   <div class="flex flex-col">
-    <h1
-      class="text-7xl md:text-5xl lg:text-7xl xl:text-9xl font-nunito font-black text-white mb-4 tracking-[-3px]"
-    >
+    <h1 class="text-7xl md:text-5xl lg:text-7xl xl:text-9xl font-nunito font-black text-white mb-4 tracking-[-3px]">
       {siteOwner}
     </h1>
     <h2 class="text-3xl lg:text-5xl font-nunito font-black gradient-text mb-12">
       {siteDescription}
     </h2>
     <p class="text-xl lg:text-2xl font-noto max-w-xl">
-      I love spending my time providing the best solutions for front-end and
-      back-end projects alike. I'm passionate in guiding projects to provide
-      best 📱 UI, 👨‍👩‍👦‍👦 UX and 🦮 Accessibility experience.
+      I love spending my time providing the best solutions for front-end and back-end projects alike. I'm passionate in
+      guiding projects to provide best 📱 UI, 👨‍👩‍👦‍👦 UX and 🦮 Accessibility experience.
     </p>
   </div>
   <div
     class="flex self-center md:ml-4 xl:ml-0 my-12 lg:my-24 md:self-start relative max-w-xs lg:max-w-lg flex-col rounded-full outer-rim overflow-hidden gradient-bg p-2 xl:p-4 before:absolute before:primary-bg-color before:content-[''] before:inset-0 before:m-auto before:rounded-full before:z-0"
   >
-    <Image
-      class="relative block rounded-full z-10"
-      width={500}
-      height={500}
-      src={profilePicture}
-      alt={siteOwner}
-    />
+    <Image class="relative block rounded-full z-10" width={500} height={500} src={profilePicture} alt={siteOwner} />
   </div>
 </section>

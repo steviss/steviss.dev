@@ -1,10 +1,10 @@
 ---
-import { getImageUrl } from "src/clients";
+import { getImageUrl } from 'src/clients'
 
-const { asset, alt } = Astro.props.node;
+const { asset, alt } = Astro.props.node
 
-const url = getImageUrl(asset).url();
-const webpUrl = getImageUrl(asset).format("webp").url();
+const url = getImageUrl(asset).url()
+const webpUrl = getImageUrl(asset).format('webp').url()
 ---
 
 <picture>

@@ -1,10 +1,10 @@
 ---
-import { IconLink } from "./react";
-import { faGithub, faCodepen } from "@fortawesome/free-brands-svg-icons";
-import { faMugHot } from "@fortawesome/free-solid-svg-icons";
-import { SITE_OWNER } from "src/config";
+import { IconLink } from './react'
+import { faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faMugHot } from '@fortawesome/free-solid-svg-icons'
+import { SITE_OWNER } from 'src/config'
 
-const today = new Date();
+const today = new Date()
 ---
 
 <footer class="flex items-center">
@@ -19,17 +19,7 @@ const today = new Date();
       label="Buy me a coffee!"
       icon={faMugHot}
     />
-    <IconLink
-      href="https://github.com/steviss"
-      target="_blank"
-      label="@steviss"
-      icon={faGithub}
-    />
-    <IconLink
-      href="https://codepen.io/steviss"
-      target="_blank"
-      label="@steviss"
-      icon={faCodepen}
-    />
+    <IconLink href="https://github.com/steviss" target="_blank" label="@steviss" icon={faGithub} />
+    <IconLink href="https://codepen.io/steviss" target="_blank" label="@steviss" icon={faCodepen} />
   </div>
 </footer>

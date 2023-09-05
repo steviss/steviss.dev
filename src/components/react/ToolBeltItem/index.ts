@@ -1,1 +1,1 @@
-export { default as ToolBeltItem } from "./ToolBeltItem";
+export { default as ToolBeltItem } from './ToolBeltItem'

@@ -1,29 +1,23 @@
 ---
-import { useSanityClient } from "@sanity/astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "src/config/consts";
-import Layout from "src/layouts/Layout.astro";
+import { useSanityClient } from '@sanity/astro'
+import { SITE_DESCRIPTION, SITE_TITLE } from 'src/config/consts'
+import Layout from 'src/layouts/Layout.astro'
 
 export async function getBlogPosts() {
-  const query = `*[_type == "post"]`;
-  const posts = await useSanityClient().fetch<any[]>(query);
+  const query = `*[_type == "post"]`
+  const posts = await useSanityClient().fetch<any[]>(query)
   return posts.map(({ title, slug, _createdAt }) => ({
     title,
     slug: slug.current,
     pubDate: _createdAt,
-  }));
+  }))
 }
 
-const posts = await getBlogPosts();
+const posts = await getBlogPosts()
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section class="flex flex-col mx-auto p-2 text-blue-50">
-    {
-      posts.map((post) => (
-        <pre class="whitespace-normal primary-bg-color text-white">
-          {JSON.stringify(post)}
-        </pre>
-      ))
-    }
+    {posts.map((post) => <pre class="whitespace-normal primary-bg-color text-white">{JSON.stringify(post)}</pre>)}
   </section>
 </Layout>

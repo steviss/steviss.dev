@@ -1,8 +1,8 @@
-import type { MainMenuProps } from "./MainMenu.interface";
-import type { FC } from "react";
+import type { MainMenuProps } from './MainMenu.interface'
+import type { FC } from 'react'
 
 const MainMenu: FC<MainMenuProps> = () => {
-  return <div></div>;
-};
+  return <div></div>
+}
 
-export default MainMenu;
+export default MainMenu

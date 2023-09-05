@@ -1,1 +1,1 @@
-export * from "./convertToPostType";
+export * from './convertToPostType'

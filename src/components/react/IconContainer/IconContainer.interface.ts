@@ -1,5 +1,3 @@
-import type { PropsWithChildren, HTMLAttributes } from "react";
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 
-export type IconContainerProps = PropsWithChildren<
-  HTMLAttributes<HTMLDivElement>
->;
+export type IconContainerProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
