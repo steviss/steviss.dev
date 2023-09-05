@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+#ssh
+.ssh
+
 # dependencies
 node_modules/
 
