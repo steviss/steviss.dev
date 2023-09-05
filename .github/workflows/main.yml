@@ -5,6 +5,9 @@ name: Release Main
 'on':
   workflow_dispatch:
 
+env:
+  FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+
 jobs:
   deploy:
     name: Deploy the build to LionDev Cloud
@@ -29,7 +32,7 @@ jobs:
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
       - name: Yarn Install
-        run: yarn install
+        run: yarn install --immutable
       - name: Build for deploy
         run: yarn build
       - name: Delete Previous deployment to Alpha LionDev Cloud
