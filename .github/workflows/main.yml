@@ -12,13 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
         with:
           cache: yarn
           node-version-file: 'package.json'
-      - name: Install dependencies
-        env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
-        run: yarn install
       - name: Create .env file for frontend
         uses: SpicyPizza/create-envfile@v1.3
         with:
