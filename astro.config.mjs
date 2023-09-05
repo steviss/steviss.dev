@@ -19,4 +19,11 @@ export default defineConfig({
   site: 'https://steviss.dev',
   integrations: [sitemap(), react(), tailwind(), sanity(sanityClienfConfig)],
   experimental: { assets: true },
+  vite: {
+    build: {
+      rollupOptions: {
+        external: 'NonExistingPath',
+      },
+    },
+  },
 })
