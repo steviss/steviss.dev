@@ -2,5 +2,4 @@
 - Deployment
 - About me page / Remove Home
 - Add buy me a beer link
-- Create tooltip for icon links
 - Fix CV and Paypal link cover

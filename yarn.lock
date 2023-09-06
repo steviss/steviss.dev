@@ -517,6 +517,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/is-prop-valid@npm:^0.8.2":
+  version: 0.8.8
+  resolution: "@emotion/is-prop-valid@npm:0.8.8"
+  dependencies:
+    "@emotion/memoize": 0.7.4
+  checksum: bb7ec6d48c572c540e24e47cc94fc2f8dec2d6a342ae97bc9c8b6388d9b8d283862672172a1bb62d335c02662afe6291e10c71e9b8642664a8b43416cdceffac
+  languageName: node
+  linkType: hard
+
+"@emotion/memoize@npm:0.7.4":
+  version: 0.7.4
+  resolution: "@emotion/memoize@npm:0.7.4"
+  checksum: 4e3920d4ec95995657a37beb43d3f4b7d89fed6caa2b173a4c04d10482d089d5c3ea50bbc96618d918b020f26ed6e9c4026bbd45433566576c1f7b056c3271dc
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-arm64@npm:0.17.18"
@@ -901,6 +917,16 @@ __metadata:
   version: 0.0.2
   resolution: "@ljharb/has-package-exports-patterns@npm:0.0.2"
   checksum: 348d421377c5c2e7e6ddf518800d30dbcdf3176d397fed2b214f49dd4ac3d1689701a463c7b89710ba32de63c87fc643565c9ff06aa066d49bc200b5e4b6655e
+  languageName: node
+  linkType: hard
+
+"@nanostores/react@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "@nanostores/react@npm:0.7.1"
+  peerDependencies:
+    nanostores: ^0.9.0
+    react: ">=18.0.0"
+  checksum: 74437e518952cc17651046a056b84cd966cd880b2eb6720dee0957c31257a6946a5f14938a4beb723b01a12be919b5fdb9d0cb195d46d0ab6ef6606c1ceeb9e2
   languageName: node
   linkType: hard
 
@@ -3139,6 +3165,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:^10.16.4":
+  version: 10.16.4
+  resolution: "framer-motion@npm:10.16.4"
+  dependencies:
+    "@emotion/is-prop-valid": ^0.8.2
+    tslib: ^2.4.0
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  dependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 57eb252f25a2c4ee14b024295c6a1162a53a05e0321bdb9c8a22ec266fbe777832823eaa0309e42854170fcde16c42915c6c5d0208b628fd000d6fab013c501f
+  languageName: node
+  linkType: hard
+
 "from2@npm:^2.3.0":
   version: 2.3.0
   resolution: "from2@npm:2.3.0"
@@ -5104,6 +5151,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanostores@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "nanostores@npm:0.9.3"
+  checksum: aad0db366a3fa82d1e3664199145cd28f71ecb4fc6f3fcaeb758400485efbd8f888fcb9db3cca4827c5ee54a5f79451ae6f8bf5080b54befad50469c411001d0
+  languageName: node
+  linkType: hard
+
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
@@ -6447,6 +6501,7 @@ __metadata:
     "@fortawesome/react-fontawesome": ^0.2.0
     "@fortawesome/sharp-light-svg-icons": ^6.4.2
     "@fortawesome/sharp-solid-svg-icons": ^6.4.2
+    "@nanostores/react": ^0.7.1
     "@sanity/astro": ^1.0.1
     "@sanity/image-url": ^1.0.2
     "@tailwindcss/typography": ^0.5.9
@@ -6467,6 +6522,8 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-redux: ^4.0.0
     eslint-plugin-testing-library: ^5.10.3
+    framer-motion: ^10.16.4
+    nanostores: ^0.9.3
     prettier: ^2.8.8
     prettier-plugin-astro: ^0.8.0
     react: ^18.0.0
@@ -6869,7 +6926,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0":
+"tslib@npm:^2.1.0, tslib@npm:^2.4.0":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad

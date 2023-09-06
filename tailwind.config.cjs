@@ -22,9 +22,12 @@ module.exports = {
       width: {
         auto: 'auto',
       },
-      textColor: {
+      colors: {
         primary: '#fbab7e',
         secondary: '#e06c22',
+        'bg-primary': '#120c0b',
+        'bg-secondary': '#1f1513',
+        lightbg: 'white',
       },
     },
   },

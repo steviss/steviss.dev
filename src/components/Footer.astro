@@ -1,6 +1,5 @@
 ---
 import { IconLink } from './react'
-import { faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faMugHot } from '@fortawesome/free-solid-svg-icons'
 import { SITE_OWNER } from 'src/config'
 
@@ -8,6 +7,10 @@ const today = new Date()
 ---
 
 <footer class="flex items-center">
+  <div>
+    <h3>{SITE_OWNER}</h3>
+    <h4>//last section about me again Experienced developer with a passion to work with cutting-edge technologies</h4>
+  </div>
   <span class="flex flex-1 text-black">
     &copy; 2016-{today.getFullYear()}
     {SITE_OWNER}. All rights reserved.</span
@@ -19,7 +22,5 @@ const today = new Date()
       label="Buy me a coffee!"
       icon={faMugHot}
     />
-    <IconLink href="https://github.com/steviss" target="_blank" label="@steviss" icon={faGithub} />
-    <IconLink href="https://codepen.io/steviss" target="_blank" label="@steviss" icon={faCodepen} />
   </div>
 </footer>
