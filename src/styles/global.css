@@ -7,6 +7,7 @@
   --secondary-color: #e06c22;
   --primary-bg-color: #120c0b;
   --secondary-bg-color: white;
+  --scrollbar-width: 15px;
   --font-size: 16px;
 }
 
@@ -21,6 +22,7 @@ body {
 .lock-scroll {
   height: 100vh;
   overflow: hidden !important;
+  padding-right: var(--scrollbar-width);
 }
 
 html {

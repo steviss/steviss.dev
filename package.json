@@ -7,6 +7,7 @@
   "scripts": {
     "sanity": "docker compose up",
     "dev": "astro dev",
+    "dev:mobile": "astro dev --host 0.0.0.0",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

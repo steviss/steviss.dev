@@ -20,6 +20,8 @@ const useScrollbarWidth = (): number => {
 
   outer?.parentNode?.removeChild(outer)
 
+  document?.querySelector<HTMLElement>(':root')?.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`)
+
   didCompute.current = true
   widthRef.current = scrollbarWidth
 
