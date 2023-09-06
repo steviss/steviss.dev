@@ -5,9 +5,9 @@ import Header from 'src/components/Header.astro'
 import Navigation from 'src/components/Navigation.astro'
 import { Cover, MobileMenu } from 'src/components/react'
 
-type Props = { title: string; description: string }
+type Props = { title: string; description: string; errorPage?: boolean }
 
-const { title, description } = Astro.props
+const { title, description, errorPage } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -16,14 +16,26 @@ const { title, description } = Astro.props
     <BaseHead title={title} description={description} />
   </head>
   <body class="primary-bg-color">
-    <Cover client:load />
-    <MobileMenu client:load><Navigation /></MobileMenu>
-    <div class="container mx-auto min-h-screen flex flex-col px-4 sm:px-6 md:px-10">
-      <Header />
-      <main class="flex-1 flex flex-col">
-        <slot />
-      </main>
-      <Footer />
-    </div>
+    {
+      errorPage ? (
+        <main class="flex flex-col items-center justify-center w-screen h-screen">
+          <slot />
+        </main>
+      ) : (
+        <>
+          <Cover client:load />
+          <MobileMenu client:load>
+            <Navigation />
+          </MobileMenu>
+          <div class="container mx-auto min-h-screen flex flex-col px-4 sm:px-6 md:px-10">
+            <Header />
+            <main class="flex-1 flex flex-col">
+              <slot />
+            </main>
+            <Footer />
+          </div>
+        </>
+      )
+    }
   </body>
 </html>
