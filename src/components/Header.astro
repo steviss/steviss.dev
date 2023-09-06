@@ -1,6 +1,6 @@
 ---
 import Navigation from './Navigation.astro'
-import { MainMenu } from 'src/components/react'
+import { MenuButton } from 'src/components/react'
 ---
 
 <header class="flex justify-between items-center py-6 md:py-12">
@@ -9,7 +9,8 @@ import { MainMenu } from 'src/components/react'
       {`<steviss />`}
     </h2></a
   >
-  <MainMenu client:only>
+  <MenuButton client:only />
+  <ul class="hidden md:flex flex-row list-none">
     <Navigation />
-  </MainMenu>
+  </ul>
 </header>

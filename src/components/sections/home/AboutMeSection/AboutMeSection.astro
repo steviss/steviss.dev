@@ -1,4 +1,5 @@
 ---
+import AboutMeSectionTitle from './AboutMeSectionTitle.astro'
 import { faHeadSideGear, faPersonToPortal, faUsersViewfinder } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconContainer } from 'src/components/react'
@@ -6,11 +7,9 @@ import { IconContainer } from 'src/components/react'
 
 <section class="flex flex-col py-12 md:py-24">
   <div class="flex flex-col md:flex-row md:items-center md:justify-between py-12 md:py-24">
-    <div class="md:max-w-md lg:max-w-xl mb-6 md:mb-0">
-      <h2 class="text-6xl md:text-5xl xl:text-8xl font-nunito font-black text-white tracking-[-3px] text-center">
-        I provide <span class="gradient-text">solutions</span> to clients
-      </h2>
-    </div>
+    <AboutMeSectionTitle>
+      I provide <span class="gradient-text p-1">solutions</span> to clients
+    </AboutMeSectionTitle>
     <div class="md:max-w-md">
       <IconContainer className="py-12">
         <FontAwesomeIcon icon={faHeadSideGear} className="h-16 duotone-icon" />
@@ -22,11 +21,9 @@ import { IconContainer } from 'src/components/react'
     </div>
   </div>
   <div class="flex flex-col md:flex-row-reverse md:items-center md:justify-between py-12 md:py-24">
-    <div class="md:max-w-md lg:max-w-xl mb-6 md:mb-0">
-      <h2 class="text-6xl md:text-5xl xl:text-8xl font-nunito font-black text-white tracking-[-3px] text-center">
-        I create <span class="gradient-text">best experiences</span> for users
-      </h2>
-    </div>
+    <AboutMeSectionTitle>
+      I create <span class="gradient-text p-1">best experiences</span> for users
+    </AboutMeSectionTitle>
     <div class="md:max-w-md">
       <IconContainer className="py-12">
         <FontAwesomeIcon icon={faPersonToPortal} className="h-16 duotone-icon" />
@@ -37,11 +34,9 @@ import { IconContainer } from 'src/components/react'
     </div>
   </div>
   <div class="flex flex-col md:flex-row md:items-center md:justify-between py-12 md:py-24">
-    <div class="md:max-w-md lg:max-w-xl mb-6 md:mb-0">
-      <h2 class="text-6xl md:text-5xl xl:text-8xl font-nunito font-black text-white tracking-[-3px] text-center">
-        I <span class="gradient-text">enable</span> my team
-      </h2>
-    </div>
+    <AboutMeSectionTitle>
+      I <span class="gradient-text p-1">enable</span> my team
+    </AboutMeSectionTitle>
     <div class="md:max-w-md">
       <IconContainer className="py-12">
         <FontAwesomeIcon icon={faUsersViewfinder} className="h-16 duotone-icon" />

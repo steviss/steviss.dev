@@ -10,7 +10,7 @@ type Props = HTMLAttributes<'a'> & {
   icon: IconDefinition
 }
 
-const { href, icon } = Astro.props
+const { href, icon, label } = Astro.props
 ---
 
 <li class="border-b md:border-none border-primary border-opacity-30 last:border-none">
@@ -20,6 +20,6 @@ const { href, icon } = Astro.props
         icon={icon}
         className="w-5 h-5 text-primary group-hover:text-secondary transition-color duration-300 ease-in-out"
       />
-    </IconContainer><span class="ml-2 md:ml-0">Blog</span>
+    </IconContainer><span class="ml-2 md:ml-0">{label}</span>
   </Link>
 </li>

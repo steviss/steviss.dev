@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'h2'>
+
+const {} = Astro.props
+---
+
+<div class="md:max-w-sm xl:max-w-xl mb-6 md:mb-0">
+  <h2
+    class="text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-nunito font-black text-white tracking-[-3px] text-center"
+  >
+    <slot />
+  </h2>
+</div>
