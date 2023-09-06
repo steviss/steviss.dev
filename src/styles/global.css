@@ -10,16 +10,25 @@
   --font-size: 16px;
 }
 
+html,
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--primary-bg-color);
+  color: var(--secondary-bg-color);
+}
+
+.lock-scroll {
+  height: 100vh;
+  overflow: hidden !important;
+}
+
 html {
-  @apply h-full;
-  min-width: 100%;
   font-size: var(--font-size);
 }
 
 body {
-  @apply h-full;
-  background-color: var(--primary-bg-color);
-  color: var(--secondary-bg-color);
+  position: relative;
 }
 
 main {

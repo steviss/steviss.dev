@@ -22,6 +22,9 @@ module.exports = {
       width: {
         auto: 'auto',
       },
+      height: {
+        'd-screen': '100dvh',
+      },
       colors: {
         primary: '#fbab7e',
         secondary: '#e06c22',
