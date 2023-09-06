@@ -12,11 +12,12 @@ const MobileMenu: FC<MobileMenuProps> = ({ children }) => {
       {menuState && (
         <motion.div
           key="mobile-menu"
-          layout
-          className="fixed flex md:hidden flex-col max-w-screen max-h-d-screen bg-bg-secondary shadow-md z-30 bottom-0 left-0 right-0"
-          animate={menuState ? 'open' : 'close'}
-          variants={MOBILE_MENU_ANIMATION}
+          animate="open"
           initial="close"
+          exit="close"
+          transition={{ y: { type: 'spring', stiffness: 300, damping: 30 } }}
+          variants={MOBILE_MENU_ANIMATION}
+          className="fixed flex md:hidden flex-col max-w-screen max-h-d-screen bg-bg-secondary shadow-md shadow-black z-30 bottom-0 left-0 right-0"
         >
           <nav className="flex flex-col p-8">
             <ul className="flex flex-col list-none">{children}</ul>

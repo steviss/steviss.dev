@@ -5,8 +5,5 @@ export const MOBILE_MENU_ANIMATION = {
   },
   close: {
     y: '100%',
-    transitionEnd: {
-      display: 'none',
-    },
   },
 }

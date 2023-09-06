@@ -16,9 +16,10 @@ const Cover: FC = () => {
       {menuState && (
         <motion.div
           key="cover"
-          animate={menuState ? 'open' : 'close'}
-          variants={COVER_ANIMATION}
+          animate="open"
           initial="close"
+          exit="close"
+          variants={COVER_ANIMATION}
           className="fixed hidden inset-0 bg-bg-primary cursor-pointer z-20"
           onClick={handleToggleMenuState}
         >
