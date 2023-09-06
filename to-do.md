@@ -1,5 +1,3 @@
 - Favicon
-- Deployment
-- About me page / Remove Home
 - Add buy me a beer link
 - Fix CV and Paypal link cover
