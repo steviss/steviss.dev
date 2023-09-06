@@ -1,14 +1,11 @@
 ---
+import Logo from './Logo.astro'
 import Navigation from './Navigation.astro'
 import { MenuButton } from 'src/components/react'
 ---
 
 <header class="flex justify-between items-center py-6 md:py-12">
-  <a href="/" class="mx-4 sm:mr-auto"
-    ><h2 class="font-tektur text-3xl font-bold gradient-text">
-      {`<steviss />`}
-    </h2></a
-  >
+  <Logo class="mx-4 sm:mr-auto text-3xl" />
   <MenuButton client:only />
   <ul class="hidden md:flex flex-row list-none">
     <Navigation />

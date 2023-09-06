@@ -1,26 +1,25 @@
 ---
-import { IconLink } from './react'
-import { faMugHot } from '@fortawesome/free-solid-svg-icons'
+import Logo from './Logo.astro'
 import { SITE_OWNER } from 'src/config'
 
 const today = new Date()
 ---
 
-<footer class="flex items-center">
-  <div>
-    <h3>{SITE_OWNER}</h3>
-    <h4>//last section about me again Experienced developer with a passion to work with cutting-edge technologies</h4>
+<footer class="flex flex-col 2xl:flex-row border-t border-primary border-opacity-40 py-12 xl:py-24">
+  <div class="flex flex-col items-start">
+    <h3
+      class="text-3xl lg:text-4xl 2xl:text-6xl font-nunito font-black text-white tracking-[-1px] lg:tracking-[-3px] text-center"
+    >
+      {SITE_OWNER}
+    </h3>
+    <h4 class="text-base lg:text-lg py-1 md:py-2 mb-4">
+      Experienced developer that loves working with cutting-edge technologies. I write about stuff I like. I love
+      animals.
+    </h4>
+    <span class="flex flex-1 text-white">
+      &copy; 2016-{today.getFullYear()}
+      {SITE_OWNER}. All rights reserved.</span
+    >
   </div>
-  <span class="flex flex-1 text-black">
-    &copy; 2016-{today.getFullYear()}
-    {SITE_OWNER}. All rights reserved.</span
-  >
-  <div class="flex">
-    <IconLink
-      href="https://paypal.me/stevissdev?country.x=RS&locale.x=en_US"
-      target="_blank"
-      label="Buy me a coffee!"
-      icon={faMugHot}
-    />
-  </div>
+  <Logo class="mt-10 text-4xl" />
 </footer>

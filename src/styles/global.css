@@ -18,6 +18,7 @@ body {
   overflow-x: hidden;
   background-color: var(--primary-bg-color);
   color: var(--secondary-bg-color);
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .lock-scroll {

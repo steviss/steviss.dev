@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'a'>
+
+const { class: classNames, ...props } = Astro.props
+---
+
+<a {...props} class:list={['font-tektur font-bold', classNames]} href="/"
+  ><h2 class="gradient-text">
+    {`<steviss />`}
+  </h2></a
+>
