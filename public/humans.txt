@@ -1,5 +1,5 @@
 /* TEAM */
-Your title: Stefan Stević
+Developer: Stefan Stević
 Site: https://steviss.dev
 Twitter: https://twitter.com/stevisstheone
 Linkedin: https://www.linkedin.com/in/steviss/
