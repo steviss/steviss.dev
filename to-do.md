@@ -1,3 +1,2 @@
-- Favicon
-- Add buy me a beer link
-- Fix CV and Paypal link cover
+- Add buy me a beer link to blog post pages
+- fix facebook share and other pages crate image for that
