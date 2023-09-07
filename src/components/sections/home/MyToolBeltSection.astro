@@ -1,5 +1,6 @@
 ---
 import { ToolBeltItem } from 'src/components/react'
+import { SITE_TECHNOLOGIES } from 'src/config'
 ---
 
 <section class="flex flex-col py-12 md:py-24">
@@ -11,20 +12,12 @@ import { ToolBeltItem } from 'src/components/react'
     frameworks. These are the tools that I primarily focus on:
   </p>
   <ul class="flex flex-wrap justify-evenly py-12 tool-belt-list">
-    <li><ToolBeltItem label="Astro" /></li>
-    <li><ToolBeltItem label="Figma" /></li>
-    <li><ToolBeltItem label="React" /></li>
-    <li><ToolBeltItem label="Next.js" /></li>
-    <li><ToolBeltItem label="Node.js" /></li>
-    <li><ToolBeltItem label="TypeORM" /></li>
-    <li><ToolBeltItem label="Nest.js" /></li>
-    <li><ToolBeltItem label="Redux Toolkit" /></li>
-    <li><ToolBeltItem label="Apollo Federation" /></li>
-    <li><ToolBeltItem label="GraphQL" /></li>
-    <li><ToolBeltItem label="REST" /></li>
-    <li><ToolBeltItem label="Kafka" /></li>
-    <li><ToolBeltItem label="PostgreSQL" /></li>
-    <li><ToolBeltItem label="GitHub Actions" /></li>
-    <li><ToolBeltItem label="Docker" /></li>
+    {
+      SITE_TECHNOLOGIES.map((label) => (
+        <li>
+          <ToolBeltItem label={label} />
+        </li>
+      ))
+    }
   </ul>
 </section>
