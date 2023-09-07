@@ -1,0 +1,13 @@
+/* TEAM */
+Your title: Stefan Stević
+Site: https://steviss.dev
+Twitter: https://twitter.com/stevisstheone
+Linkedin: https://www.linkedin.com/in/steviss/
+CodePen: https://codepen.io/steviss
+GitHub: https://github.com/steviss  
+Location: Novi Sad, Srbija
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript
+Components: Astro, React, TypeScript, Docker
+Software: VSCode, Sanity
