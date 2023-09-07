@@ -8,6 +8,7 @@ GitHub: https://github.com/steviss
 Location: Novi Sad, Srbija
 
 /* SITE */
-Standards: HTML5, CSS3, JavaScript
+Languages: English / Serbian / Bosnian / Croatian
 Components: Astro, React, TypeScript, Docker
-Software: VSCode, Sanity
+Doctype: HTML5
+IDE: VSCode, Sanity, Photoshop
