@@ -1,2 +1,3 @@
 - Add buy me a beer link to blog post pages
 - fix facebook share and other pages crate image for that
+- fix margins connect iwth me
