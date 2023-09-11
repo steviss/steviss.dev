@@ -4,12 +4,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from 'src/config/consts'
 import Layout from 'src/layouts/Layout.astro'
 
 export async function getBlogPosts() {
-  const query = `*[_type == "post"]`
+  const query = `*[_type == "post"]{mainImage{asset->{path,url}}, 'tags': tags[].tag->{title}, ...}`
   const posts = await useSanityClient().fetch<any[]>(query)
-  return posts.map(({ title, slug, _createdAt }) => ({
+  return posts.map(({ title, slug, _createdAt, _updatedAt, body, mainImage }) => ({
     title,
     slug: slug.current,
-    pubDate: _createdAt,
+    body,
+    heroImage: mainImage?.asset?._ref,
+    createdAt: _createdAt,
+    updatedAt: _updatedAt,
   }))
 }
 
@@ -18,6 +21,11 @@ const posts = await getBlogPosts()
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section class="flex flex-col mx-auto p-2 text-blue-50">
-    {posts.map((post) => <pre class="whitespace-normal primary-bg-color text-white">{JSON.stringify(post)}</pre>)}
+    {
+      posts.map(
+        (post, idex) =>
+          idex === 0 && <pre class="whitespace-normal primary-bg-color text-white">{JSON.stringify(post)}</pre>,
+      )
+    }
   </section>
 </Layout>
