@@ -1,8 +1,4 @@
-import { loadEnv } from 'vite'
 import { z } from 'zod'
-
-const { SANITY_STUDIO_PROJECT_ID, SANITY_STUDIO_DATASET, SANITY_HOST, SANITY_PORT, FONTAWESOME_NPM_AUTH_TOKEN } =
-  loadEnv(process.env.NODE_ENV, process.cwd(), '')
 
 /**
  * Specify your server-side environment variables schema here. This way you can ensure the app isn't
@@ -14,7 +10,6 @@ const server = z.object({
   SANITY_HOST: z.string(),
   SANITY_PORT: z.number(),
   SANITY_AUTH_TOKEN: z.string().optional(),
-  FONTAWESOME_NPM_AUTH_TOKEN: z.string(),
 })
 
 /**
@@ -27,7 +22,6 @@ const client = z.object({
   SANITY_HOST: z.string(),
   SANITY_PORT: z.number(),
   SANITY_AUTH_TOKEN: z.string().optional(),
-  FONTAWESOME_NPM_AUTH_TOKEN: z.string(),
 })
 
 /**
@@ -37,11 +31,10 @@ const client = z.object({
  * @type {Record<keyof z.infer<typeof server> | keyof z.infer<typeof client>, string | undefined>}
  */
 const processEnv = {
-  SANITY_STUDIO_PROJECT_ID: SANITY_STUDIO_PROJECT_ID,
-  SANITY_STUDIO_DATASET: SANITY_STUDIO_DATASET,
-  SANITY_HOST: SANITY_HOST ?? '0.0.0.0',
-  SANITY_PORT: parseInt(SANITY_PORT, 10) ?? 3333,
-  FONTAWESOME_NPM_AUTH_TOKEN,
+  SANITY_STUDIO_PROJECT_ID: process.env.SANITY_STUDIO_PROJECT_ID,
+  SANITY_STUDIO_DATASET: process.env.SANITY_STUDIO_DATASET,
+  SANITY_HOST: process.env.SANITY_HOST ?? '0.0.0.0',
+  SANITY_PORT: parseInt(process.env.SANITY_PORT, 10) ?? 3333,
 }
 
 // Don't touch the part below
@@ -82,6 +75,6 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
       return target[/** @type {keyof typeof target} */ (prop)]
     },
   })
-  console.log('✅ All Required Env Variables present in the .env file.')
 }
+
 export { env }
