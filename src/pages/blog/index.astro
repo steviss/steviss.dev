@@ -1,19 +1,44 @@
 ---
 import { useSanityClient } from '@sanity/astro'
+import PortableText from 'src/components/sanity/PortableText.astro'
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/config/consts'
 import Layout from 'src/layouts/Layout.astro'
+import type { PostType } from 'src/types'
+
+export interface BlogPostsGroqQuery {
+  _id: string
+  _updatedAt: Date
+  title: string
+  mainImage: {
+    asset: {
+      path: string
+      url: string
+    }
+  }
+  _createdAt: string
+  _type: 'post'
+  slug: string
+  body: Record<any, any>[]
+  tags: {
+    title: string
+    slug: {
+      current: string
+    }
+  }[]
+}
 
 export async function getBlogPosts() {
-  const query = `*[_type == "post"]{mainImage{asset->{path,url}}, 'tags': tags[].tag->{title}, ...}`
-  const posts = await useSanityClient().fetch<any[]>(query)
-  return posts.map(({ title, slug, _createdAt, _updatedAt, body, mainImage }) => ({
+  const query = `*[_type == "post"]{..., mainImage{asset->{url}}, "slug": slug->current, "tags": tags[]->{title, slug}}`
+  const posts = await useSanityClient().fetch<BlogPostsGroqQuery[]>(query)
+  return posts.map(({ title, slug, _createdAt, _updatedAt, body, mainImage, tags }) => ({
     title,
-    slug: slug.current,
+    slug: `blog/${slug}`,
     body,
-    heroImage: mainImage?.asset?._ref,
+    heroImage: mainImage?.asset?.url,
+    tags: tags.map(({ title, slug }) => ({ title, slug: `tag/${slug.current}` })),
     createdAt: _createdAt,
     updatedAt: _updatedAt,
-  }))
+  })) as unknown as PostType[]
 }
 
 const posts = await getBlogPosts()
@@ -22,10 +47,18 @@ const posts = await getBlogPosts()
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section class="flex flex-col mx-auto p-2 text-blue-50">
     {
-      posts.map(
-        (post, idex) =>
-          idex === 0 && <pre class="whitespace-normal primary-bg-color text-white">{JSON.stringify(post)}</pre>,
-      )
+      posts.map(({ heroImage, title, body, tags }) => (
+        <div>
+          <img width={720} height={360} src={heroImage} alt={title} />
+          <h4>{title}</h4>
+          <ul>
+            {tags.map(({ slug, title }) => (
+              <a href={slug}>{title}</a>
+            ))}
+          </ul>
+          <PortableText portableText={body} />
+        </div>
+      ))
     }
   </section>
 </Layout>

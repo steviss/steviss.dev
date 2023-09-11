@@ -2,19 +2,19 @@
 import { useSanityClient } from '@sanity/astro'
 import PortableText from 'src/components/sanity/PortableText.astro'
 import BlogPostLayout from 'src/layouts/BlogPostLayout.astro'
-import type { PostType } from 'src/types'
+import type { TagType } from 'src/types'
 import { convertToPostType } from 'src/utility'
 
 export async function getStaticPaths() {
-  const query = `*[_type == "post"]`
+  const query = `*[_type == "tag"]`
   const posts = await useSanityClient().fetch(query)
   const postsTyped = convertToPostType(posts)
-  return postsTyped.map((post: PostType) => {
+  return postsTyped.map((tag: TagType) => {
     return {
       params: {
-        slug: post.slug || '',
+        slug: tag.slug || '',
       },
-      props: { ...post },
+      props: { ...tag },
     }
   })
 }

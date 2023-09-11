@@ -1,11 +1,14 @@
+import type { PortableTextProps } from 'astro-portabletext/types'
+
 export type PostType = {
   title: string
-  slug: {
-    current: string
-  }
-  description: string
-  pubDate: string
-  updatedDate: string
-  heroImage: any
-  body: any
+  slug: string
+  updatedAt: string
+  createdAt: string
+  heroImage?: string
+  body: PortableTextProps
+  tags: {
+    title: string
+    slug: string
+  }[]
 }
