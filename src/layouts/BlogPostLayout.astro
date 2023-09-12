@@ -5,26 +5,27 @@ import { FormattedDate } from 'src/components/react'
 type Props = {
   title: string
   description: string
-  pubDate: Date
-  updatedDate: Date
+  createdAt: Date
+  updatedAt: Date
   heroImage?: string
 }
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const { title, description, createdAt, updatedAt, heroImage } = Astro.props
 ---
 
 <Layout title={title} description={description}>
   <article class="prose md:prose-lg lg:prose-xl max-w-none">
     {heroImage && <img width={720} height={360} src={heroImage} alt={description} />}
     <h1>{title}</h1>
-    <FormattedDate date={pubDate} />
+    <FormattedDate date={createdAt} />
     {
-      updatedDate && (
+      updatedAt && (
         <div class="italic">
-          Last updated on <FormattedDate date={updatedDate} />
+          Last updated on <FormattedDate date={updatedAt} />
         </div>
       )
     }
+    <pre>{JSON.stringify({ title, description, createdAt, updatedAt, heroImage})}</pre>
     <hr class="border-top border-t-gray-400" />
     <slot />
   </article>

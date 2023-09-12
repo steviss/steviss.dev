@@ -1,43 +1,21 @@
 ---
 import { useSanityClient } from '@sanity/astro'
+import { BlogPostsGroqQueryType, blogPostsGroqQuery } from 'src/clients/sanity'
 import PortableText from 'src/components/sanity/PortableText.astro'
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/config/consts'
 import Layout from 'src/layouts/Layout.astro'
 import type { PostType } from 'src/types'
 
-export interface BlogPostsGroqQuery {
-  _id: string
-  _updatedAt: Date
-  title: string
-  mainImage: {
-    asset: {
-      path: string
-      url: string
-    }
-  }
-  _createdAt: string
-  _type: 'post'
-  slug: string
-  body: Record<any, any>[]
-  tags: {
-    title: string
-    slug: {
-      current: string
-    }
-  }[]
-}
-
 export async function getBlogPosts() {
-  const query = `*[_type == "post"]{..., mainImage{asset->{url}}, "slug": slug->current, "tags": tags[]->{title, slug}}`
-  const posts = await useSanityClient().fetch<BlogPostsGroqQuery[]>(query)
+  const posts = await useSanityClient().fetch<BlogPostsGroqQueryType[]>(blogPostsGroqQuery)
   return posts.map(({ title, slug, _createdAt, _updatedAt, body, mainImage, tags }) => ({
     title,
     slug: `blog/${slug}`,
     body,
     heroImage: mainImage?.asset?.url,
-    tags: tags.map(({ title, slug }) => ({ title, slug: `tag/${slug.current}` })),
-    createdAt: _createdAt,
-    updatedAt: _updatedAt,
+    tags: tags,
+    createdAt: new Date(_createdAt),
+    updatedAt: new Date(_updatedAt),
   })) as unknown as PostType[]
 }
 
@@ -47,10 +25,12 @@ const posts = await getBlogPosts()
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section class="flex flex-col mx-auto p-2 text-blue-50">
     {
-      posts.map(({ heroImage, title, body, tags }) => (
+      posts.map(({ heroImage, title, body, tags, slug }) => (
         <div>
           <img width={720} height={360} src={heroImage} alt={title} />
-          <h4>{title}</h4>
+          <a href={slug}>
+            <h4>{title}</h4>
+          </a>
           <ul>
             {tags.map(({ slug, title }) => (
               <a href={slug}>{title}</a>

@@ -1,32 +1,39 @@
 ---
 import { useSanityClient } from '@sanity/astro'
+import { BlogPostsGroqQueryType, blogPostsGroqQuery } from 'src/clients/sanity'
 import PortableText from 'src/components/sanity/PortableText.astro'
 import BlogPostLayout from 'src/layouts/BlogPostLayout.astro'
 import type { PostType } from 'src/types'
-import { convertToPostType } from 'src/utility'
 
 export async function getStaticPaths() {
-  const query = `*[_type == "post"]`
-  const posts = await useSanityClient().fetch(query)
-  const postsTyped = convertToPostType(posts)
+  const posts = await useSanityClient().fetch<BlogPostsGroqQueryType[]>(blogPostsGroqQuery)
+  const postsTyped = posts.map(({ title, slug, _createdAt, _updatedAt, body, mainImage, tags }) => ({
+    title,
+    slug,
+    body,
+    heroImage: mainImage?.asset?.url,
+    tags: tags,
+    createdAt: new Date(_createdAt),
+    updatedAt: new Date(_updatedAt),
+  })) as unknown as PostType[]
   return postsTyped.map((post: PostType) => {
     return {
       params: {
-        slug: post.slug || '',
+        slug: post.slug,
       },
       props: { ...post },
     }
   })
 }
 
-const { title, body, description, pubDate, updatedDate, heroImage } = Astro.props
+const { title, body, description, createdAt, updatedAt, heroImage } = Astro.props
 ---
 
 <BlogPostLayout
   title={title}
   description={description}
-  pubDate={pubDate}
-  updatedDate={updatedDate}
+  createdAt={createdAt}
+  updatedAt={updatedAt}
   heroImage={heroImage}
 >
   <PortableText portableText={body} />
