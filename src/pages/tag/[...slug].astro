@@ -1,33 +1,49 @@
 ---
 import { useSanityClient } from '@sanity/astro'
-import PortableText from 'src/components/sanity/PortableText.astro'
+import { BlogTagsGroqQueryType, blogTagsGroqQuery } from 'src/clients/sanity'
 import BlogPostLayout from 'src/layouts/BlogPostLayout.astro'
 import type { TagType } from 'src/types'
-import { convertToPostType } from 'src/utility'
+
+type Props = TagType
 
 export async function getStaticPaths() {
-  const query = `*[_type == "tag"]`
-  const posts = await useSanityClient().fetch(query)
-  const postsTyped = convertToPostType(posts)
-  return postsTyped.map((tag: TagType) => {
+  const tags = await useSanityClient().fetch<BlogTagsGroqQueryType[]>(blogTagsGroqQuery)
+  const tagsTyped = tags.map(({ title, slug, _createdAt, _updatedAt, description, posts }) => ({
+    title,
+    slug,
+    description,
+    posts: posts.map((post) => ({
+      ...post,
+      createdAt: new Date(post._createdAt),
+      updatedAt: new Date(post._updatedAt),
+    })),
+    createdAt: new Date(_createdAt),
+    updatedAt: new Date(_updatedAt),
+  })) as unknown as TagType[]
+
+  return tagsTyped.map((tag) => {
     return {
       params: {
-        slug: tag.slug || '',
+        slug: tag.slug,
       },
       props: { ...tag },
     }
   })
 }
 
-const { title, body, description, pubDate, updatedDate, heroImage } = Astro.props
+const { title, description, posts, createdAt, updatedAt } = Astro.props
 ---
 
-<BlogPostLayout
-  title={title}
-  description={description}
-  pubDate={pubDate}
-  updatedDate={updatedDate}
-  heroImage={heroImage}
->
-  <PortableText portableText={body} />
+<BlogPostLayout title={title} description={description} createdAt={createdAt} updatedAt={updatedAt}>
+  <p>{description}</p>
+  {
+    posts.map(({ title, createdAt }) => (
+      <article>
+        <>
+          <h4>{title}</h4>
+          <p>{createdAt.toString()}</p>
+        </>
+      </article>
+    ))
+  }
 </BlogPostLayout>

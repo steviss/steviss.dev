@@ -1,22 +1,13 @@
 ---
 import { useSanityClient } from '@sanity/astro'
-import { BlogPostsGroqQueryType, blogPostsGroqQuery } from 'src/clients/sanity'
+import { BlogPostsGroqQueryType, blogPostsGroqQuery, convertBlogPostToPost } from 'src/clients/sanity'
 import PortableText from 'src/components/sanity/PortableText.astro'
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/config/consts'
 import Layout from 'src/layouts/Layout.astro'
-import type { PostType } from 'src/types'
 
 export async function getBlogPosts() {
   const posts = await useSanityClient().fetch<BlogPostsGroqQueryType[]>(blogPostsGroqQuery)
-  return posts.map(({ title, slug, _createdAt, _updatedAt, body, mainImage, tags }) => ({
-    title,
-    slug: `blog/${slug}`,
-    body,
-    heroImage: mainImage?.asset?.url,
-    tags: tags,
-    createdAt: new Date(_createdAt),
-    updatedAt: new Date(_updatedAt),
-  })) as unknown as PostType[]
+  return convertBlogPostToPost(posts)
 }
 
 const posts = await getBlogPosts()

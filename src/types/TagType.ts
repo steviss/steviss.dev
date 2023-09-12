@@ -1,7 +1,10 @@
+import type { PostType } from './PostType'
+
 export type TagType = {
   title: string
   slug: string
-  updatedAt: string
-  createdAt: string
-  description?: string
+  updatedAt: Date
+  createdAt: Date
+  description: string
+  posts: PostType[]
 }
