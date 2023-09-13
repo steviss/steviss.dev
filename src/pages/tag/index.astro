@@ -1,29 +1,12 @@
 ---
 import { useSanityClient } from '@sanity/astro'
-import { blogTagsGroqQuery } from 'src/clients/sanity'
+import { SanityTagsGroqQueryType, convertSanityTagToTag, sanityTagsGroqQuery } from 'src/clients/sanity'
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/config/consts'
 import Layout from 'src/layouts/Layout.astro'
-import type { TagType } from 'src/types'
-
-export interface BlogTagsGroqQuery {
-  _id: string
-  _updatedAt: Date
-  title: string
-  description: string
-  _createdAt: string
-  _type: 'tag'
-  slug: string
-}
 
 export async function getBlogTags() {
-  const posts = await useSanityClient().fetch<BlogTagsGroqQuery[]>(blogTagsGroqQuery)
-  return posts.map(({ title, slug, _createdAt, _updatedAt, description }) => ({
-    title,
-    slug: `tag/${slug}`,
-    description,
-    createdAt: _createdAt,
-    updatedAt: _updatedAt,
-  })) as unknown as TagType[]
+  const tags = await useSanityClient().fetch<SanityTagsGroqQueryType[]>(sanityTagsGroqQuery)
+  return convertSanityTagToTag(tags)
 }
 
 const posts = await getBlogTags()

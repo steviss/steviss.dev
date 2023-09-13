@@ -1,12 +1,12 @@
 ---
 import { useSanityClient } from '@sanity/astro'
-import { BlogPostsGroqQueryType, blogPostsGroqQuery, convertBlogPostToPost } from 'src/clients/sanity'
+import { SanityPostsGroqQueryType, convertSanityPostToPost, sanityPostsGroqQuery } from 'src/clients/sanity'
 import PortableText from 'src/components/sanity/PortableText.astro'
 import BlogPostLayout from 'src/layouts/BlogPostLayout.astro'
 
 export async function getStaticPaths() {
-  const posts = await useSanityClient().fetch<BlogPostsGroqQueryType[]>(blogPostsGroqQuery)
-  const postsTyped = convertBlogPostToPost(posts, false)
+  const posts = await useSanityClient().fetch<SanityPostsGroqQueryType[]>(sanityPostsGroqQuery)
+  const postsTyped = convertSanityPostToPost(posts, false)
   return postsTyped.map((post) => {
     return {
       params: {

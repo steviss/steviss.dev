@@ -1,1 +1,2 @@
-export * from './convertBlogPostToPost'
+export * from './convertSanityPostToPost'
+export * from './convertSanityTagToTag'

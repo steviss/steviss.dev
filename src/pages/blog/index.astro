@@ -1,13 +1,13 @@
 ---
 import { useSanityClient } from '@sanity/astro'
-import { BlogPostsGroqQueryType, blogPostsGroqQuery, convertBlogPostToPost } from 'src/clients/sanity'
+import { SanityPostsGroqQueryType, convertSanityPostToPost, sanityPostsGroqQuery } from 'src/clients/sanity'
 import PortableText from 'src/components/sanity/PortableText.astro'
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/config/consts'
 import Layout from 'src/layouts/Layout.astro'
 
 export async function getBlogPosts() {
-  const posts = await useSanityClient().fetch<BlogPostsGroqQueryType[]>(blogPostsGroqQuery)
-  return convertBlogPostToPost(posts)
+  const posts = await useSanityClient().fetch<SanityPostsGroqQueryType[]>(sanityPostsGroqQuery)
+  return convertSanityPostToPost(posts)
 }
 
 const posts = await getBlogPosts()
@@ -16,15 +16,18 @@ const posts = await getBlogPosts()
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section class="flex flex-col mx-auto p-2 text-blue-50">
     {
-      posts.map(({ heroImage, title, body, tags, slug }) => (
-        <div>
+      posts.map(({ heroImage, title, body, tags, slug, estimatedReadingTime }) => (
+        <div class="flex flex-col">
           <img width={720} height={360} src={heroImage} alt={title} />
           <a href={slug}>
             <h4>{title}</h4>
           </a>
-          <ul>
+          <h5>Reading time: {estimatedReadingTime} min</h5>
+          <ul class="flex">
             {tags.map(({ slug, title }) => (
-              <a href={slug}>{title}</a>
+              <li class="p-2">
+                <a href={slug}>#{title}</a>
+              </li>
             ))}
           </ul>
           <PortableText portableText={body} />

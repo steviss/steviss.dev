@@ -1,26 +1,14 @@
 ---
 import { useSanityClient } from '@sanity/astro'
-import { BlogTagsGroqQueryType, blogTagsGroqQuery } from 'src/clients/sanity'
+import { SanityTagsGroqQueryType, convertSanityTagToTag, sanityTagsGroqQuery } from 'src/clients/sanity'
 import BlogPostLayout from 'src/layouts/BlogPostLayout.astro'
 import type { TagType } from 'src/types'
 
 type Props = TagType
 
 export async function getStaticPaths() {
-  const tags = await useSanityClient().fetch<BlogTagsGroqQueryType[]>(blogTagsGroqQuery)
-  const tagsTyped = tags.map(({ title, slug, _createdAt, _updatedAt, description, posts }) => ({
-    title,
-    slug,
-    description,
-    posts: posts.map((post) => ({
-      ...post,
-      createdAt: new Date(post._createdAt),
-      updatedAt: new Date(post._updatedAt),
-    })),
-    createdAt: new Date(_createdAt),
-    updatedAt: new Date(_updatedAt),
-  })) as unknown as TagType[]
-
+  const tags = await useSanityClient().fetch<SanityTagsGroqQueryType[]>(sanityTagsGroqQuery)
+  const tagsTyped = convertSanityTagToTag(tags, false)
   return tagsTyped.map((tag) => {
     return {
       params: {
@@ -42,6 +30,7 @@ const { title, description, posts, createdAt, updatedAt } = Astro.props
         <>
           <h4>{title}</h4>
           <p>{createdAt.toString()}</p>
+          <span />
         </>
       </article>
     ))
