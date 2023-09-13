@@ -28,21 +28,10 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
-    }),
-    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'tag' } }],
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
     }),
     defineField({
       name: 'body',

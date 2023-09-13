@@ -25,13 +25,13 @@ const { title, description, posts, createdAt, updatedAt } = Astro.props
 <BlogPostLayout title={title} description={description} createdAt={createdAt} updatedAt={updatedAt}>
   <p>{description}</p>
   {
-    posts.map(({ title, createdAt }) => (
+    posts.map(({ title, createdAt, estimatedReadingTime }) => (
       <article>
-        <>
+        <header>
           <h4>{title}</h4>
           <p>{createdAt.toString()}</p>
-          <span />
-        </>
+          <span>Read time: {estimatedReadingTime} m</span>
+        <header/>
       </article>
     ))
   }

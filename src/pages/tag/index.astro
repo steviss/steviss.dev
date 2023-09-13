@@ -9,13 +9,13 @@ export async function getBlogTags() {
   return convertSanityTagToTag(tags)
 }
 
-const posts = await getBlogTags()
+const tags = await getBlogTags()
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section class="flex flex-col mx-auto p-2 text-blue-50">
     {
-      posts.map(({ description, title, slug }) => (
+      tags.map(({ description, title, slug }) => (
         <div>
           <h4>{title}</h4>
           <p>{description}</p>
