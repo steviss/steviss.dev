@@ -8,7 +8,7 @@ type Props = TagType
 
 export async function getStaticPaths() {
   const tags = await useSanityClient().fetch<SanityTagsGroqQueryType[]>(sanityTagsGroqQuery)
-  const tagsTyped = convertSanityTagToTag(tags, false)
+  const tagsTyped = convertSanityTagToTag(tags, { prefix: false })
   return tagsTyped.map((tag) => {
     return {
       params: {

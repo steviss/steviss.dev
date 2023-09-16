@@ -1,0 +1,18 @@
+---
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import type { HTMLAttributes } from 'astro/types'
+import classNames from 'classnames'
+import { getImageUrl } from 'src/clients/sanity'
+
+type Props = HTMLAttributes<'img'> & { asset: SanityImageSource }
+
+const { class: className, asset, ...props } = Astro.props
+
+const url = getImageUrl(asset).url()
+const webpUrl = getImageUrl(asset).format('webp').url()
+---
+
+<picture>
+  <source srcset={webpUrl} type="image/webp" />
+  <img {...props} src={url} class={classNames('block w-full h-full object-cover', className)} />
+</picture>

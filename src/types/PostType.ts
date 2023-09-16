@@ -10,6 +10,6 @@ export type PostType = {
     slug: string
   }[]
   estimatedReadingTime: number
-  updatedAt: string
-  createdAt: string
+  updatedAt: Date
+  createdAt: Date
 }

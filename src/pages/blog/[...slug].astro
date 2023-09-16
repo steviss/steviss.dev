@@ -6,7 +6,7 @@ import BlogPostLayout from 'src/layouts/BlogPostLayout.astro'
 
 export async function getStaticPaths() {
   const posts = await useSanityClient().fetch<SanityPostsGroqQueryType[]>(sanityPostsGroqQuery)
-  const postsTyped = convertSanityPostToPost(posts, false)
+  const postsTyped = convertSanityPostToPost(posts, { prefix: false })
   return postsTyped.map((post) => {
     return {
       params: {

@@ -1,4 +1,6 @@
 ---
+import { FormattedDate } from '../../components/react'
+import FeaturedImage from '../../components/sanity/FeaturedImage.astro'
 import { useSanityClient } from '@sanity/astro'
 import {
   SanityPostsGroqQueryType,
@@ -8,7 +10,6 @@ import {
   sanityPostsGroqQuery,
   sanityTagsGroqQuery,
 } from 'src/clients/sanity'
-import PortableText from 'src/components/sanity/PortableText.astro'
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/config/consts'
 import Layout from 'src/layouts/Layout.astro'
 
@@ -47,23 +48,23 @@ const tags = await getBlogTags()
       </div>
     </div>
   </section>
-  <section class="flex flex-col mx-auto p-2 text-blue-50">
+  <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xxl:grid-cols-4 grid-flow-row gap-4 md:gap-8 py-24">
     {
-      posts.map(({ heroImage, title, body, tags, slug, estimatedReadingTime }) => (
+      posts.map(({ heroImage, title, createdAt, slug, estimatedReadingTime }) => (
         <div class="flex flex-col">
-          <img width={720} height={360} src={heroImage} alt={title} />
-          <a href={slug}>
-            <h4>{title}</h4>
-          </a>
-          <h5>Reading time: {estimatedReadingTime} min</h5>
-          <ul class="flex">
-            {tags.map(({ slug, title }) => (
-              <li class="p-2">
-                <a href={slug}>#{title}</a>
-              </li>
-            ))}
-          </ul>
-          <PortableText portableText={body} />
+          <div class="relative rounded-md overflow-hidden h-[208px]">
+            {heroImage && <FeaturedImage class="max-h-52" width={720} height={480} asset={heroImage} alt={title} />}
+          </div>
+          <div class="flex flex-col md:flex-row text-primary mt-6">
+            <div class="flex flex-col md:flex-row">
+              <FormattedDate date={createdAt} />
+              <span class="px-2">•</span>
+              <h4>Reading time: {estimatedReadingTime} min</h4>
+            </div>
+          </div>
+          <h3 class="text-3xl lg:text-4xl font-nunito font-semibold text-white py-8">
+            <a href={slug}>{title}</a>
+          </h3>
         </div>
       ))
     }
