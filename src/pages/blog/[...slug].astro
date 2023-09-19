@@ -1,6 +1,6 @@
 ---
 import { useSanityClient } from '@sanity/astro'
-import { SanityPostsGroqQueryType, convertSanityPostToPost, sanityPostsGroqQuery } from 'src/clients/sanity'
+import { type SanityPostsGroqQueryType, convertSanityPostToPost, sanityPostsGroqQuery } from 'src/clients/sanity'
 import PortableText from 'src/components/sanity/PortableText.astro'
 import BlogPostLayout from 'src/layouts/BlogPostLayout.astro'
 
@@ -20,12 +20,6 @@ export async function getStaticPaths() {
 const { title, body, description, createdAt, updatedAt, heroImage } = Astro.props
 ---
 
-<BlogPostLayout
-  title={title}
-  description={description}
-  createdAt={createdAt}
-  updatedAt={updatedAt}
-  heroImage={heroImage}
->
+<BlogPostLayout title={title} description={description} createdAt={createdAt} updatedAt={updatedAt} heroImage={heroImage}>
   <PortableText portableText={body} />
 </BlogPostLayout>
