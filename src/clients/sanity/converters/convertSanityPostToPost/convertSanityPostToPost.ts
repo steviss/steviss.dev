@@ -1,6 +1,7 @@
+import type { PostType } from 'src/types'
+
 import { DEFAULT_PREFIX, RETRIEVE_FIELDS_DEFAULTS } from './convertSanityPostToPost.consts'
 import type { ConvertSanityPostToPostFunction } from './convertSanityPostToPost.interface'
-import type { PostType } from 'src/types'
 
 const convertSanityPostToPost: ConvertSanityPostToPostFunction = (items, options) => {
   const prefix = options?.prefix ? DEFAULT_PREFIX : false
