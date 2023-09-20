@@ -1,0 +1,63 @@
+name: Release Main
+#'on':
+#  push:
+#    branches: ['main']
+'on':
+  workflow_dispatch:
+
+env:
+  FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+  SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID}}
+
+jobs:
+  deploy:
+    environment: main
+    name: Deploy the build to LionDev Cloud
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initial Slack Message
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: $SLACK_CHANNEL_ID
+          payload: |
+            {
+              "text": "Deployment started (In Progress)",
+              "attachments": [
+                {
+                  "pretext": "Deployment started",
+                  "color": "dbab09",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "In Progress"
+                    }
+                  ]
+                }
+              ]
+            }
+      - name: Update Slack Message
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          # Unlike the step posting a new message, this step does not accept a channel name.
+          # Please use a channel ID, not a name here.
+          channel-id: $SLACK_CHANNEL_ID
+          update-ts: ${{ steps.slack.outputs.ts }}
+          payload: |
+            {
+              "text": "Deployment finished (Completed)",
+              "attachments": [
+                {
+                  "pretext": "Deployment finished",
+                  "color": "28a745",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "Completed"
+                    }
+                  ]
+                }
+              ]
+            }
