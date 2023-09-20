@@ -1,6 +1,7 @@
 export type SanityPostsGroqQueryType = {
   slug: string
   title: string
+  descritpion: string
   mainImage: {
     asset: {
       path: string
@@ -22,6 +23,7 @@ export const sanityPostsGroqQuery = `
 {
   title,
   "slug": slug.current,
+  description,
   mainImage{asset->{url}},
   body,
   "estimatedReadingTime": round(length(pt::text(body)) / 5 / 180),
