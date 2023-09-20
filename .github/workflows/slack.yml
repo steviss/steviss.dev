@@ -5,10 +5,6 @@ name: Slack Testing
 'on':
   workflow_dispatch:
 
-env:
-  FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
-  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
-
 jobs:
   deploy:
     environment: main
@@ -24,18 +20,56 @@ jobs:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID}}
           payload: |
             {
-              "text": "Deployment started (In Progress)",
-              "attachments": [
+              "blocks": [
                 {
-                  "pretext": "Deployment started",
-                  "color": "dbab09",
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "New Deployment to <env> (ID)",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
                   "fields": [
                     {
-                      "title": "Status",
-                      "short": true,
-                      "value": "In Progress"
+                      "type": "mrkdwn",
+                      "text": "*Enviroment:*\n<main>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Started by:*\n<example.com|Fred Enriquez>"
                     }
                   ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Started:*\nAug 10 - Aug 13"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Finished:*\nPaid time off"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Status:*\n16.0 (2 days)"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "<https://example.com|View Run>"
+                  }
                 }
               ]
             }
@@ -44,24 +78,60 @@ jobs:
         env:
           SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_TOKEN}}'
         with:
-          # Unlike the step posting a new message, this step does not accept a channel name.
-          # Please use a channel ID, not a name here.
           channel-id: ${{ secrets.SLACK_CHANNEL_ID}}
           update-ts: ${{ steps.slack.outputs.ts }}
           payload: |
             {
-              "text": "Deployment finished (Completed)",
-              "attachments": [
+              "blocks": [
                 {
-                  "pretext": "Deployment finished",
-                  "color": "28a745",
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "New Deployment to <env> (ID)",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
                   "fields": [
                     {
-                      "title": "Status",
-                      "short": true,
-                      "value": "Completed"
+                      "type": "mrkdwn",
+                      "text": "*Enviroment:*\n<main>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Started by:*\n<example.com|Fred Enriquez>"
                     }
                   ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Started:*\nAug 10 - Aug 13"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Finished:*\nPaid time off"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Status:*\n16.0 (2 days)"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "<https://example.com|View Run>"
+                  }
                 }
               ]
             }
