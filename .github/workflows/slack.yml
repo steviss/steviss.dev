@@ -25,7 +25,7 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "New Deployment to <env> (ID)",
+                    "text": "New Deployment to Main - ${{ github.run_id }}",
                     "emoji": true
                   }
                 },
@@ -38,7 +38,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Started by:*\n<example.com|Fred Enriquez>"
+                      "text": "*Started by:*\n<example.com|${{ github.actor }}>"
                     }
                   ]
                 },
@@ -66,72 +66,18 @@ jobs:
                 },
                 {
                   "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "<https://example.com|View Run>"
-                  }
-                }
-              ]
-            }
-      - name: Update Slack Message
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_TOKEN}}'
-        with:
-          channel-id: ${{ secrets.SLACK_CHANNEL_ID}}
-          update-ts: ${{ steps.slack.outputs.ts }}
-          payload: |
-            {
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "New Deployment to <env> (ID)",
-                    "emoji": true
-                  }
-                },
-                {
-                  "type": "section",
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Enviroment:*\n<main>"
+                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run>"
+                    
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Started by:*\n<example.com|Fred Enriquez>"
+                      "text": "<${{ vars.DEPLOY_URL }}|View Run>"
+                    
                     }
                   ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Started:*\nAug 10 - Aug 13"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Finished:*\nPaid time off"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Status:*\n16.0 (2 days)"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "<https://example.com|View Run>"
-                  }
                 }
               ]
             }
