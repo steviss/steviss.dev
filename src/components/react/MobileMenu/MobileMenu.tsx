@@ -1,9 +1,11 @@
-import { MOBILE_MENU_ANIMATION } from './MobileMenu.consts'
-import type { MobileMenuProps } from './MobileMenu.interface'
 import { useStore } from '@nanostores/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { FC } from 'react'
+
 import { isMenuOpen } from 'src/stores'
+
+import { MOBILE_MENU_ANIMATION } from './MobileMenu.consts'
+import type { MobileMenuProps } from './MobileMenu.interface'
 
 const MobileMenu: FC<MobileMenuProps> = ({ children }) => {
   const menuState = useStore(isMenuOpen)

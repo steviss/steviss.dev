@@ -1,11 +1,14 @@
-import { COVER_ANIMATION } from './Cover.consts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmarkLarge } from '@fortawesome/sharp-solid-svg-icons'
 import { useStore } from '@nanostores/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { FC } from 'react'
+
 import { IconContainer } from 'src/components/react'
+
 import { isMenuOpen } from 'src/stores'
+
+import { COVER_ANIMATION } from './Cover.consts'
 
 const Cover: FC = () => {
   const menuState = useStore(isMenuOpen)

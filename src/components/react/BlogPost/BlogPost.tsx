@@ -1,6 +1,7 @@
+import type { FC } from 'react'
+
 import { FormattedDate } from '../FormattedDate'
 import type { BlogPostProps } from './BlogPost.interface'
-import type { FC } from 'react'
 
 const BlogPost: FC<BlogPostProps> = ({ title, createdAt, slug }) => {
   return (

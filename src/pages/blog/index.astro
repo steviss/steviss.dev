@@ -1,10 +1,10 @@
 ---
-import { FormattedDate } from '../../components/react'
-import FeaturedImage from '../../components/sanity/FeaturedImage.astro'
+import { FormattedDate } from 'src/components/react'
+import FeaturedImage from 'src/components/sanity/FeaturedImage.astro'
 import { useSanityClient } from '@sanity/astro'
 import {
-  SanityPostsGroqQueryType,
-  SanityTagsGroqQueryType,
+  type SanityPostsGroqQueryType,
+  type SanityTagsGroqQueryType,
   convertSanityPostToPost,
   convertSanityTagToTag,
   sanityPostsGroqQuery,
@@ -53,7 +53,7 @@ const tags = await getBlogTags()
       posts.map(({ heroImage, title, createdAt, slug, estimatedReadingTime }) => (
         <div class="flex flex-col">
           <div class="relative rounded-md overflow-hidden h-[208px]">
-            {heroImage && <FeaturedImage class="max-h-52" width={720} height={480} asset={heroImage} alt={title} />}
+            {heroImage && <FeaturedImage class="max-h-52" width={360} height={240} asset={heroImage} alt={title} />}
           </div>
           <div class="flex flex-col md:flex-row text-primary mt-6">
             <div class="flex flex-col md:flex-row">

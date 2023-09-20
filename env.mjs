@@ -1,8 +1,11 @@
 import { loadEnv } from 'vite'
 import { z } from 'zod'
 
-const { SANITY_STUDIO_PROJECT_ID, SANITY_STUDIO_DATASET, SANITY_HOST, SANITY_PORT, FONTAWESOME_NPM_AUTH_TOKEN } =
-  loadEnv(process.env.NODE_ENV, process.cwd(), '')
+const { SANITY_STUDIO_PROJECT_ID, SANITY_STUDIO_DATASET, SANITY_HOST, SANITY_PORT, FONTAWESOME_NPM_AUTH_TOKEN } = loadEnv(
+  process.env.NODE_ENV,
+  process.cwd(),
+  '',
+)
 
 /**
  * Specify your server-side environment variables schema here. This way you can ensure the app isn't

@@ -1,9 +1,10 @@
-import { IconContainer } from '../IconContainer'
-import type { IconLinkProps } from './IconLink.interface'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/sharp-light-svg-icons'
 import classNames from 'classnames'
 import type { FC } from 'react'
+
+import { IconContainer } from '../IconContainer'
+import type { IconLinkProps } from './IconLink.interface'
 
 const IconLink: FC<IconLinkProps> = ({ children, label, icon, className, ...props }) => {
   return (

@@ -29,7 +29,6 @@
     "css.lint.unknownAtRules": "ignore", //@tailwind imports for warnings
     "prettier.documentSelectors": ["**/*.astro"],
     "eslint.workingDirectories": ["./"],
-    "typescript.tsdk": "node_modules\\typescript\\lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "typescript.preferences.importModuleSpecifier": "relative",
     "files.eol": "\n",

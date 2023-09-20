@@ -1,5 +1,6 @@
-import type { FormattedDateProps } from './FormattedDate.interface'
 import type { FC } from 'react'
+
+import type { FormattedDateProps } from './FormattedDate.interface'
 
 const FormattedDate: FC<FormattedDateProps> = ({ className, date }) => {
   return (

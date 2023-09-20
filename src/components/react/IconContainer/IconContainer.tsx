@@ -1,6 +1,7 @@
-import type { IconContainerProps } from './IconContainer.interface'
 import classNames from 'classnames'
 import type { FC } from 'react'
+
+import type { IconContainerProps } from './IconContainer.interface'
 
 const IconContainer: FC<IconContainerProps> = ({ children, className, ...props }) => {
   return (
