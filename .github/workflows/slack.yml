@@ -39,7 +39,6 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "*Status:*\n ⏳ Working on it...",
-                      "emoji": true
                     }
                   ]
                 },
