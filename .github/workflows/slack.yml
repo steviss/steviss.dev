@@ -38,33 +38,11 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Enviroment:*\n<${{ vars.DEPLOY_URL }}|{{main}}>"
+                      "text": "*Started:*\n ${{ steps.date.outputs.date }}"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Started by:*\n<${{ github.server_url }}/${{ github.actor }}|${{ github.actor }}>"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Started:*\n ${{ env.date }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Finished:*\nPaid time off"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Status:*\n16.0 (2 days)"
+                      "text": "*Status:*\n ⏳ Working on it..."
                     }
                   ]
                 },
@@ -78,7 +56,12 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "<${{ vars.DEPLOY_URL }}|View Run>"
+                      "text": "<${{ vars.DEPLOY_URL }}|View Enviroment>"
+                    
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "Started by: ${{ github.actor }}"
                     
                     }
                   ]
