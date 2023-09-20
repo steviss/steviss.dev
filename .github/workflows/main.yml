@@ -14,6 +14,51 @@ jobs:
     name: Deploy the build to LionDev Cloud
     runs-on: ubuntu-latest
     steps:
+      - name: Initial Slack Message
+        id: slack
+        uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_TOKEN}}'
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID}}
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "${{ github.workflow }} - Run: ${{ github.run_id }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Started by:*\n ${{ github.actor }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Status:*\n ⏳ Working on it..."
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ vars.DEPLOY_URL }}|View Enviroment>"
+                    }
+                  ]
+                }
+              ]
+            }
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -82,6 +127,52 @@ jobs:
             mv ~/$DEPLOY_PATH/dist/* ~/$DEPLOY_PATH/
             rm -rf ~/$DEPLOY_PATH/dist
             rm -rf ~/temp-backup
+      - name: Update Slack Message - Success
+        uses: slackapi/slack-github-action@v1.24.0
+        if: steps.deploy.outcome == 'success' || steps.cleanup.outcome == 'success' || steps.backup-and-delete.outcome == 'success'
+        env:
+          SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_TOKEN}}'
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID}}
+          update-ts: ${{ steps.slack.outputs.ts }}
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "${{ github.workflow }} - Run: ${{ github.run_id }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Started by:*\n ${{ github.actor }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Status:*\n 🟢 Job Succeeded"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ vars.DEPLOY_URL }}|View Enviroment>"
+                    }
+                  ]
+                }
+              ]
+            }
       - name: RollBack to previous Deployment to Alpha LionDev Cloud
         if: steps.deploy.outcome == 'failure' || steps.cleanup.outcome == 'failure' || steps.backup-and-delete.outcome == 'failure'
         uses: appleboy/ssh-action@v1.0.0
@@ -98,3 +189,49 @@ jobs:
           script: |
             mv ~/temp-backup/* ~/$DEPLOY_PATH/
             rm -rf ~/temp-backup
+      - name: Update Slack Message - Failed
+        uses: slackapi/slack-github-action@v1.24.0
+        if: steps.deploy.outcome == 'failure' || steps.cleanup.outcome == 'failure' || steps.backup-and-delete.outcome == 'failure'
+        env:
+          SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_TOKEN}}'
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID}}
+          update-ts: ${{ steps.slack.outputs.ts }}
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "${{ github.workflow }} - Run: ${{ github.run_id }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Started by:*\n ${{ github.actor }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Status:*\n 🔴 Job Failed"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ vars.DEPLOY_URL }}|View Enviroment>"
+                    }
+                  ]
+                }
+              ]
+            }
