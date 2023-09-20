@@ -51,7 +51,7 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "<${{ vars.DEPLOY_URL }}|View Enviroment>"
-                    },
+                    }
                   ]
                 }
               ]
