@@ -33,7 +33,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "Started by: ${{ github.actor }}"
+                      "text": "*Started:*\n ${{ github.actor }}"
                     },
                     {
                       "type": "mrkdwn",
