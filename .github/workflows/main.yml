@@ -36,7 +36,7 @@ jobs:
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
       - name: Yarn FontAwesome Setup
-        if: yarn-cache.outputs.cache-hit != 'true'
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |
           yarn config set initScope npmScopes
           yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com"
@@ -48,7 +48,7 @@ jobs:
       - name: Build for deploy
         run: yarn build
       - name: Delete and Backup Previous deployment to Alpha LionDev Cloud
-        id: backup
+        id: backup-and-delete
         uses: appleboy/ssh-action@v1.0.0
         env:
           DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
@@ -95,7 +95,7 @@ jobs:
             rm -rf ~/$DEPLOY_PATH/dist
             rm -rf ~/temp-backup
       - name: RollBack to previous Deployment to Alpha LionDev Cloud
-        if: steps.deploy.outcome == 'failure' || steps.cleanup.outcome == 'failure' || steps.backup.outcome == 'failure'
+        if: steps.deploy.outcome == 'failure' || steps.cleanup.outcome == 'failure' || steps.backup-and-delete.outcome == 'failure'
         uses: appleboy/ssh-action@v1.0.0
         env:
           DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
