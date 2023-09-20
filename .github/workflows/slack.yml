@@ -38,7 +38,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Started:*\n ${{ steps.date.outputs.date }}"
+                      "text": "Started by: ${{ github.actor }}"
                     },
                     {
                       "type": "mrkdwn",
@@ -59,11 +59,6 @@ jobs:
                       "text": "<${{ vars.DEPLOY_URL }}|View Enviroment>"
                     
                     },
-                    {
-                      "type": "mrkdwn",
-                      "text": "Started by: ${{ github.actor }}"
-                    
-                    }
                   ]
                 }
               ]
