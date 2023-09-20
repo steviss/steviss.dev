@@ -37,7 +37,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Status:*\n ⏳ Working on it...",
+                      "text": "*Status:*\n ⏳ Working on it..."
                     }
                   ]
                 },
