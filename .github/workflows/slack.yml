@@ -11,6 +11,10 @@ jobs:
     name: Deploy the build to LionDev Cloud
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: |
+          echo "{date}={$(date +'+%Y/%m/%d %H:%M:%S')}" >> $GITHUB_STATE
       - name: Initial Slack Message
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
@@ -25,7 +29,7 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "New Deployment to Main - ${{ github.run_id }}",
+                    "text": "${{ github.workflow }} - ${{ github.run_id }}",
                     "emoji": true
                   }
                 },
@@ -34,11 +38,11 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Enviroment:*\n<main>"
+                      "text": "*Enviroment:*\n<${{ vars.DEPLOY_URL }}|{{main}}>"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Started by:*\n<example.com|${{ github.actor }}>"
+                      "text": "*Started by:*\n<${{ github.server_url }}/${{ github.actor }}|${{ github.actor }}>"
                     }
                   ]
                 },
@@ -47,7 +51,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Started:*\nAug 10 - Aug 13"
+                      "text": "*Started:*\n ${{ env.date }}"
                     },
                     {
                       "type": "mrkdwn",
