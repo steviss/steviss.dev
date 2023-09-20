@@ -43,7 +43,7 @@ jobs:
           yarn config set npmScopes.fortawesome.npmAlwaysAuth true
           yarn config set npmScopes.fortawesome.npmAuthToken $FONTAWESOME_NPM_AUTH_TOKEN
       - name: Yarn Install
-        if: yarn-cache.outputs.cache-hit != 'true'
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --immutable
       - name: Build for deploy
         run: yarn build
