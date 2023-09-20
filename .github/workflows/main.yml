@@ -19,16 +19,6 @@ jobs:
         with:
           cache: 'yarn'
           node-version-file: 'package.json'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
       - name: Create .env file for frontend
         uses: SpicyPizza/create-envfile@v2.0.2
         with:
@@ -36,14 +26,12 @@ jobs:
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
       - name: Yarn FontAwesome Setup
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |
           yarn config set initScope npmScopes
           yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com"
           yarn config set npmScopes.fortawesome.npmAlwaysAuth true
           yarn config set npmScopes.fortawesome.npmAuthToken $FONTAWESOME_NPM_AUTH_TOKEN
       - name: Yarn Install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --immutable
       - name: Build for deploy
         run: yarn build
