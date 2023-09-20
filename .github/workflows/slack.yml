@@ -8,7 +8,6 @@ name: Slack Testing
 env:
   FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
-  SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID}}
 
 jobs:
   deploy:
@@ -17,9 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial Slack Message
+        id: slack
         uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_TOKEN}}'
         with:
-          channel-id: $SLACK_CHANNEL_ID
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID}}
           payload: |
             {
               "text": "Deployment started (In Progress)",
@@ -39,10 +41,12 @@ jobs:
             }
       - name: Update Slack Message
         uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_TOKEN}}'
         with:
           # Unlike the step posting a new message, this step does not accept a channel name.
           # Please use a channel ID, not a name here.
-          channel-id: $SLACK_CHANNEL_ID
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID}}
           update-ts: ${{ steps.slack.outputs.ts }}
           payload: |
             {
