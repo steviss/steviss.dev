@@ -25,8 +25,7 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "${{ github.workflow }} - ${{ github.run_id }}",
-                    "emoji": true
+                    "text": "${{ github.workflow }} - ${{ github.run_id }}"
                   }
                 },
                 {
