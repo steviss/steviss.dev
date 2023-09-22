@@ -1,12 +1,7 @@
-name: Release Main
-#'on':
-#  push:
-#    branches: ['main']
+name: Deploy Main
+
 'on':
   workflow_dispatch:
-
-env:
-  FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
 jobs:
   deploy:
@@ -30,8 +25,22 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "${{ github.workflow }} - Run: ${{ github.run_id }}"
+                    "text": "${{ github.workflow }} #${{github.run_number}}"
                   }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "image",
+                      "image_url": "https://assets.wearelion.dev/astro-icon-slack.png",
+                      "alt_text": "Astro Logo"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "Deploying Astro · ID: ${{ github.run_id }}"
+                    }
+                  ]
                 },
                 {
                   "type": "section",
@@ -73,6 +82,8 @@ jobs:
           envkey_SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
           file_name: .env
       - name: Yarn FontAwesome Setup
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
         run: |
           yarn config set initScope npmScopes
           yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com"
@@ -143,11 +154,26 @@ jobs:
               "unfurl_media": false,
               "blocks": [
                 {
+                {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "${{ github.workflow }} - Run: ${{ github.run_id }}"
+                    "text": "${{ github.workflow }} #${{github.run_number}}"
                   }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "image",
+                      "image_url": "https://assets.wearelion.dev/astro-icon-slack.png",
+                      "alt_text": "Astro Logo"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "Deploying Astro · ID: ${{ github.run_id }}"
+                    }
+                  ]
                 },
                 {
                   "type": "section",
@@ -210,8 +236,22 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "${{ github.workflow }} - Run: ${{ github.run_id }}"
+                    "text": "${{ github.workflow }} #${{github.run_number}}"
                   }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "image",
+                      "image_url": "https://assets.wearelion.dev/astro-icon-slack.png",
+                      "alt_text": "Astro Logo"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "Deploying Astro · ID: ${{ github.run_id }}"
+                    }
+                  ]
                 },
                 {
                   "type": "section",
