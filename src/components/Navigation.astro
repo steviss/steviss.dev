@@ -1,10 +1,10 @@
 ---
 import NavigationLink from './NavigationLink.astro'
-import { faCode, faFloppyDiskPen, faWrench } from '@fortawesome/sharp-solid-svg-icons'
+import { Code, PenLine, Wrench } from 'lucide-react'
 ---
 
 <>
-  <NavigationLink label="Blog" href="/blog" icon={faFloppyDiskPen} />
-  <NavigationLink label="Snippets" href="/snippets" icon={faCode} />
-  <NavigationLink label="Projects" href="/projects" icon={faWrench} />
+  <NavigationLink label="Blog" href="/blog" icon={PenLine} />
+  <NavigationLink label="Snippets" href="/snippets" icon={Code} />
+  <NavigationLink label="Projects" href="/projects" icon={Wrench} />
 </>

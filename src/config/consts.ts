@@ -22,6 +22,7 @@ export const SITE_TECHNOLOGIES = [
   'GitHub Actions',
   'Docker',
   'AI Agents',
+  'Cursor.AI',
   'Cloud Code',
   'Github Copilot',
 ]

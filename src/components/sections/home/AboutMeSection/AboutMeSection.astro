@@ -1,9 +1,19 @@
 ---
 import AboutMeSectionTitle from './AboutMeSectionTitle.astro'
-import { faHeadSideGear, faPersonToPortal, faUsersViewfinder } from '@fortawesome/pro-duotone-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconContainer } from 'src/components/react'
+import SolutionIcon from 'src/assets/noun-solution-5695836.svg?raw'
+import UserExperienceIcon from 'src/assets/noun-user-experience-7522693.svg?raw'
+import TeamIcon from 'src/assets/noun-team-8158095.svg?raw'
 ---
+
+<svg width="0" height="0" style="position: absolute;">
+  <defs>
+    <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(62)">
+      <stop offset="0%" style="stop-color:#fbab7e;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#e06c22;stop-opacity:1"></stop>
+    </linearGradient>
+  </defs>
+</svg>
 
 <section class="flex flex-col py-12 md:py-24">
   <div class="flex flex-col md:flex-row md:items-center md:justify-between py-12 md:py-24">
@@ -11,12 +21,11 @@ import { IconContainer } from 'src/components/react'
       I provide <span class="gradient-text px-1">solutions</span> to clients
     </AboutMeSectionTitle>
     <div class="md:max-w-md">
-      <IconContainer className="py-12">
-        <FontAwesomeIcon icon={faHeadSideGear} className="h-16 duotone-icon" />
+      <IconContainer className="py-12 gradient-icon">
+        <Fragment set:html={SolutionIcon} />
       </IconContainer>
       <p class="text-xl lg:text-2xl max-w-xl text-center">
-        Vast experience in transitioning projects from client's imagination into reality, on many respected platforms
-        and stacks.
+        Vast experience in transitioning projects from client's imagination into reality, on many respected platforms and stacks.
       </p>
     </div>
   </div>
@@ -25,8 +34,8 @@ import { IconContainer } from 'src/components/react'
       I create <span class="gradient-text px-1">best experiences</span> for users
     </AboutMeSectionTitle>
     <div class="md:max-w-md">
-      <IconContainer className="py-12">
-        <FontAwesomeIcon icon={faPersonToPortal} className="h-16 duotone-icon" />
+      <IconContainer className="py-12 gradient-icon">
+        <Fragment set:html={UserExperienceIcon} />
       </IconContainer>
       <p class="text-xl lg:text-2xl max-w-xl text-center">
         Proficient in making projects pixel perfect, optimized for best performance, accessibility and experience.
@@ -38,12 +47,12 @@ import { IconContainer } from 'src/components/react'
       I <span class="gradient-text px-1">enable</span> my team
     </AboutMeSectionTitle>
     <div class="md:max-w-md">
-      <IconContainer className="py-12">
-        <FontAwesomeIcon icon={faUsersViewfinder} className="h-16 duotone-icon" />
+      <IconContainer className="py-12 gradient-icon">
+        <Fragment set:html={TeamIcon} />
       </IconContainer>
       <p class="text-xl md:text-2xl max-w-xl text-center">
-        Backed with always expanding knowledge of Linux-based systems and best practices involving project development,
-        integrations and deployments.
+        Backed with always expanding knowledge of Linux-based systems and best practices involving project development, integrations and
+        deployments.
       </p>
     </div>
   </div>
