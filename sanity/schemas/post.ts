@@ -20,6 +20,12 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'description',
+      title: 'Descriptions',
+      type: 'string',
+      validation: (Rule) => Rule.max(255),
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
