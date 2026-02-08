@@ -13,6 +13,7 @@ export const SITE_TECHNOLOGIES = [
   'TypeORM',
   'Nest.js',
   'Redux Toolkit',
+  'Tenstack Query',
   'Apollo Federation',
   'GraphQL',
   'REST',
@@ -20,4 +21,7 @@ export const SITE_TECHNOLOGIES = [
   'PostgreSQL',
   'GitHub Actions',
   'Docker',
+  'AI Agents',
+  'Cloud Code',
+  'Github Copilot',
 ]

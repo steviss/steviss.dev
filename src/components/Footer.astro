@@ -5,22 +5,17 @@ import { SITE_OWNER } from 'src/config'
 const today = new Date()
 ---
 
-<footer
-  class="flex flex-col 2xl:flex-row 2xl:justify-center 2xl:items-center border-t border-primary border-opacity-40 py-12 xl:py-24"
->
+<footer class="flex flex-col 2xl:flex-row 2xl:justify-center 2xl:items-center border-t border-primary border-opacity-40 py-12 xl:py-24">
   <div class="flex flex-col items-start">
-    <h3
-      class="text-3xl lg:text-4xl 2xl:text-6xl font-nunito font-black text-white tracking-[-1px] 2xl:tracking-[-3px] text-center"
-    >
+    <h3 class="text-3xl lg:text-4xl 2xl:text-6xl font-nunito font-black text-white tracking-[-1px] 2xl:tracking-[-3px] text-center">
       {SITE_OWNER}
     </h3>
     <h4 class="text-base lg:text-lg py-1 md:py-2 mb-4">
-      Experienced developer who loves working with cutting-edge technologies. I write about stuff I like. I love
-      animals.
+      Experienced developer who loves working with cutting-edge technologies. I write about stuff I like. I love animals.
     </h4>
     <span class="flex flex-1 text-white text-opacity-50">
-      steviss.dev &copy; 2016-{today.getFullYear()}
-      {SITE_OWNER} · All rights reserved · My website doesn't use any Cookies · It's built with 🚀 Astro and Sanity
+      steviss.dev &copy; 2016-{today.getFullYear()} · {SITE_OWNER} · All rights reserved · My website doesn't use any Cookies · It's built
+      with 🚀 Astro and Sanity
     </span>
   </div>
   <Logo class="2xl:mt-0 2xl:ml-auto mt-10 text-4xl" />
