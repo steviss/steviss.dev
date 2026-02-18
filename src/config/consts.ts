@@ -13,7 +13,7 @@ export const SITE_TECHNOLOGIES = [
   'TypeORM',
   'Nest.js',
   'Redux Toolkit',
-  'Tenstack Query',
+  'Tanstack Query',
   'Apollo Federation',
   'GraphQL',
   'REST',
